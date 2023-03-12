@@ -9,8 +9,23 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Kaunas"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="31">
+        <activity
+            android:name=".hotels"
+            android:exported="false" />
+        <activity
+            android:name=".quiz"
+            android:exported="false" />
+        <activity
+            android:name=".bestRestaurants"
+            android:exported="false" />
+        <activity
+            android:name=".placesToVisit"
+            android:exported="false" />
+        <activity
+            android:name=".aboutKaunas"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -20,6 +35,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

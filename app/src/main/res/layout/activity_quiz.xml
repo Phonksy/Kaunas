@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/pastel"
+    tools:context=".quiz">
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="48dp"
+        android:fontFamily="@font/atma_semibold"
+        android:text="PASITIKRINK ŽINIAS"
+        android:textColor="#000000"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/back4" />
+
+    <ImageView
+        android:id="@+id/back4"
+        android:layout_width="57dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="338dp"
+        android:clickable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="?attr/actionModeCloseDrawable" />
+
+    <TextView
+        android:id="@+id/question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="82dp"
+        android:layout_marginEnd="48dp"
+        android:fontFamily="@font/atma_semibold"
+        android:text="Kada švenčiama Kauno miesto diena?"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+    <Button
+        android:id="@+id/ansA"
+        android:layout_width="217dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="97dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="97dp"
+        android:layout_marginBottom="3dp"
+        android:background="#FFFFFF"
+        android:text="ats1"
+        app:layout_constraintBottom_toTopOf="@+id/ansB"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/question" />
+
+    <Button
+        android:id="@+id/ansB"
+        android:layout_width="217dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="97dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="97dp"
+        android:layout_marginBottom="4dp"
+        android:background="#FFFFFF"
+        android:text="ats2"
+        app:layout_constraintBottom_toTopOf="@+id/ansC"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ansA" />
+
+    <Button
+        android:id="@+id/ansC"
+        android:layout_width="217dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="97dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="97dp"
+        android:layout_marginBottom="9dp"
+        android:background="#FFFFFF"
+        android:text="ats3"
+        app:layout_constraintBottom_toTopOf="@+id/ansD"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ansB" />
+
+    <Button
+        android:id="@+id/ansD"
+        android:layout_width="217dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="97dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="97dp"
+        android:layout_marginBottom="45dp"
+        android:background="#FFFFFF"
+        android:text="ats4"
+        app:layout_constraintBottom_toTopOf="@+id/submit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ansC" />
+
+    <TextView
+        android:id="@+id/questionNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="190dp"
+        android:layout_marginTop="41dp"
+        android:layout_marginEnd="191dp"
+        android:layout_marginBottom="15dp"
+        android:fontFamily="@font/atma_semibold"
+        android:text="Nr. 1"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/question"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="159dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="164dp"
+        android:layout_marginBottom="80dp"
+        android:background="#FFFFFF"
+        android:text="KITAS"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ansD" />
+</androidx.constraintlayout.widget.ConstraintLayout>
