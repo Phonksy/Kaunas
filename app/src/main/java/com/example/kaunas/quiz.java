@@ -1,20 +1,23 @@
 package com.example.kaunas;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 public class quiz extends AppCompatActivity implements View.OnClickListener {
-
-    ImageView back4;
     TextView questionNumber;
     TextView question;
     Button ansA, ansB, ansC, ansD;
@@ -28,15 +31,9 @@ public class quiz extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
 
-        back4 = findViewById(R.id.back4);
-
-        back4.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(quiz.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar((toolbar));
+        getSupportActionBar().setTitle(null);
 
         questionNumber = findViewById(R.id.questionNumber);
         question = findViewById(R.id.question);
@@ -45,6 +42,7 @@ public class quiz extends AppCompatActivity implements View.OnClickListener {
         ansC = findViewById(R.id.ansC);
         ansD = findViewById(R.id.ansD);
         submit = findViewById(R.id.submit);
+        submit.setEnabled(false);
 
         ansA.setOnClickListener(this);
         ansB.setOnClickListener(this);
@@ -54,6 +52,16 @@ public class quiz extends AppCompatActivity implements View.OnClickListener {
 
         questionNumber.setText("Iš viso klausimų: "+totalQuestions);
         loadNewQuestion();
+
+        ImageView back = (ImageView) findViewById(R.id.back);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(quiz.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     void loadNewQuestion() {
@@ -68,6 +76,7 @@ public class quiz extends AppCompatActivity implements View.OnClickListener {
         ansB.setText(questionsAnswer.choices[currentQuestionIndex][1]);
         ansC.setText(questionsAnswer.choices[currentQuestionIndex][2]);
         ansD.setText(questionsAnswer.choices[currentQuestionIndex][3]);
+        submit.setEnabled(false);
     }
 
     @Override
@@ -82,6 +91,7 @@ public class quiz extends AppCompatActivity implements View.OnClickListener {
         ansC.setEnabled(true);
         ansD.setEnabled(true);
 
+
         Button clickedButton = (Button) view;
 
         selectedAnswer = clickedButton.getText().toString();
@@ -91,6 +101,7 @@ public class quiz extends AppCompatActivity implements View.OnClickListener {
             ansB.setEnabled(false);
             ansC.setEnabled(false);
             ansD.setEnabled(false);
+            submit.setEnabled(true);
         } else if (clickedButton.getId() == R.id.submit) {
             currentQuestionIndex++;
             loadNewQuestion();
@@ -120,7 +131,50 @@ public class quiz extends AppCompatActivity implements View.OnClickListener {
         loadNewQuestion();
     }
 
-    void backToMenu() {
+    @Override
+    public boolean onCreateOptionsMenu (Menu menu)
+    {
+        getMenuInflater().inflate(R.menu.toolbar_menu, menu);
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected (@NonNull MenuItem item)
+    {
+        switch(item.getItemId()) {
+            case
+                    R.id.nav_about:
+                Intent intent = new Intent(quiz.this, aboutKaunas.class);
+                startActivity(intent);
+                break;
+            case
+                    R.id.nav_food:
+                Intent intent2 = new Intent(quiz.this, bestRestaurants.class);
+                startActivity(intent2);
+                break;
+            case
+                    R.id.nav_places:
+                Intent intent3 = new Intent(quiz.this, placesToVisit.class);
+                startActivity(intent3);
+                break;
+            case
+                    R.id.nav_hotels:
+                Intent intent5 = new Intent(quiz.this, hotels.class);
+                startActivity(intent5);
+                break;
+            case
+                    R.id.nav_news:
+                gotoUrl("https://kauno.diena.lt");
+                break;
+
+            default:
+                break;
+        }
+        return true;
+    }
+
+    private void gotoUrl(String s) {
+        Uri uri = Uri.parse(s);
+        startActivity(new Intent(Intent.ACTION_VIEW, uri));
     }
 }

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/nav_about"
+        android:title="Apie" />
+    <item
+        android:id="@+id/nav_places"
+        android:title="Lankytinos vietos" />
+        <item
+            android:id="@+id/nav_food"
+            android:title="Kur pavalgyti?" />
+        <item
+            android:id="@+id/nav_quiz"
+            android:title="Pasitikrink žinias" />
+        <item
+            android:id="@+id/nav_hotels"
+            android:title="Viešbučiai" />
+        <item
+            android:id="@+id/nav_news"
+            android:title="Naujienos" />
+</menu>
