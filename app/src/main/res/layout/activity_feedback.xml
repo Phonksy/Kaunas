@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".feedback"
+    android:background="@drawable/pastel"
+    android:id="@+id/my_drawer_layout"
+    android:tileMode="disabled"
+    android:gravity="top"
+    tools:ignore="HardcodedText">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="170dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="-40dp"
+        android:layout_marginEnd="110dp"
+        android:fontFamily="@font/atma_semibold"
+        android:text="PALIKTI ATSILIEPIMĄ"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <EditText
+        android:id="@+id/vardas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="92dp"
+        android:layout_marginEnd="60dp"
+        android:ems="10"
+        android:fontFamily="@font/atma_semibold"
+        android:hint="Įveskite savo vardą"
+        android:inputType="textPersonName"
+        android:textColor="#000000"
+        android:textColorHint="#656565"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <EditText
+        android:id="@+id/komentaras"
+        android:layout_width="298dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="51dp"
+        android:ems="10"
+        android:fontFamily="@font/atma_semibold"
+        android:hint="Įveskite komentarą"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vardas" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="160dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="125dp"
+        android:layout_marginTop="62dp"
+        android:layout_marginEnd="126dp"
+        android:background="#80FFFFFF"
+        android:fontFamily="@font/atma_semibold"
+        android:text="PATEIKTI"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/komentaras" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

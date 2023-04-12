@@ -46,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
     Button quiz;
     Button hotels;
 
+    Button feedback;
+
     private final String url = "https://api.openweathermap.org/data/2.5/weather?q=Kaunas&appid=29566980cfa64cf6a1b53add7e9a95ff";
     private static final DecimalFormat df = new DecimalFormat("0.0");
 
@@ -60,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         restaurants = findViewById(R.id.restaurants);
         quiz = findViewById(R.id.quiz);
         hotels = findViewById(R.id.hotels);
+        feedback = findViewById(R.id.feedback);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar((toolbar));
@@ -147,6 +150,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, hotels.class);
+                startActivity(intent);
+            }
+        });
+
+        feedback.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, feedback.class);
                 startActivity(intent);
             }
         });
