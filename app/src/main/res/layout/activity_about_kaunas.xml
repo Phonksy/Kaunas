@@ -9,73 +9,142 @@
     android:tileMode="disabled"
     android:gravity="top">
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar_layout"
-        />
-
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="87dp"
-        android:layout_marginTop="70dp"
-        android:layout_marginEnd="87dp"
+        android:layout_marginStart="-235dp"
+        android:layout_marginTop="17dp"
         android:fontFamily="@font/atma_semibold"
         android:text="APIE KAUNĄ"
         android:textColor="#000000"
-        android:textSize="34sp"
+        android:textSize="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_layout"
+        android:layout_marginBottom="675dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="294dp"
-        android:layout_height="76dp"
-        android:layout_marginStart="62dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="62dp"
-        android:fontFamily="@font/atma_semibold"
-        android:text="MIESTO MERAS: VISVALDAS MATIJOŠAITIS"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.571"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="290dp"
-        android:layout_height="268dp"
-        android:layout_marginStart="55dp"
-        android:layout_marginEnd="55dp"
-        android:layout_marginBottom="308dp"
-        android:fontFamily="@font/atma_semibold"
-        android:text="Kaunas – antrasis pagal dydį Lietuvos miestas šalies centrinėje dalyje, Nemuno ir Neries santakoje. Svarbus pramonės, transporto, mokslo ir kultūros centras, Laikinoji sostinė. Kauno miesto savivaldybė, Kauno rajono savivaldybės centras, katalikų arkivyskupijos centras. Gyventojų skaičius – 298,8 tūkst. (2021)."
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="285dp"
-        android:layout_height="178dp"
-        android:layout_marginStart="63dp"
-        android:layout_marginTop="61dp"
-        android:layout_marginEnd="63dp"
-        android:layout_marginBottom="63dp"
+    <ScrollView
+        android:layout_width="412dp"
+        android:layout_height="780dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"
-        app:srcCompat="@drawable/panorama" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="15dp"
+                android:fontFamily="@font/atma_semibold"
+                android:text="Dabartinis miesto meras: Visvaldas Matijošaitis"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="16dp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="350dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:fontFamily="@font/atma_semibold"
+                android:text="Antrasis pagal dydį Lietuvos miestas šalies centrinėje dalyje, Nemuno ir Neries santakoje. Svarbus pramonės, transporto, mokslo ir kultūros centras, Laikinoji sostinė. Kauno miesto savivaldybė, Kauno rajono savivaldybės centras, katalikų arkivyskupijos centras. Gyventojų skaičius – 298,8 tūkst. (2021)."
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="16dp" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginTop="50dp"
+                app:srcCompat="@drawable/panorama" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/atma_semibold"
+                android:text="Kaunas yra padalintas į 11 seniūnijų:"
+                android:textAlignment="center"
+                android:textColor="#000000" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginTop="10dp"
+                app:srcCompat="@drawable/kauno_seniunijos" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/atma_semibold"
+                android:text="Kaunas taip pat turi savo herbą:"
+                android:textAlignment="center"
+                android:textColor="#000000" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                app:srcCompat="@drawable/kauno_herbas" />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:fontFamily="@font/atma_semibold"
+                android:text="Kauno mieste gyvena 10,6 % visų Lietuvos gyventojų. Pagal tautybę apie 93 % miesto gyventojų yra lietuviai, 4 % – rusai, kitų tautybių – 3 %. 2001 m. gyventojų surašymo duomenimis, mieste gyvenančios tautinės mažumos (žmonių skaičius): rusai (16 622), ukrainiečiai (1906), lenkai (1600), baltarusai (1142), žydai (427), vokiečiai (378), čigonai (364), latviai – (211), totoriai (200), armėnai (141), kitų tautybių (534)."
+                android:textAlignment="center"
+                android:textColor="#000000" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginTop="20dp"
+                app:srcCompat="@drawable/kaunas1" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="match_parent"
+                android:layout_height="230dp"
+                android:layout_marginTop="20dp"
+                app:srcCompat="@drawable/kaunas2" />
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="match_parent"
+                android:layout_height="320dp"
+                android:layout_marginTop="20dp"
+                app:srcCompat="@drawable/kaunas3" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

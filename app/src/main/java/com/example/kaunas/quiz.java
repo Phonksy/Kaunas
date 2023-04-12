@@ -26,6 +26,8 @@ public class quiz extends AppCompatActivity implements View.OnClickListener {
     int currentQuestionIndex = 0;
     String selectedAnswer = "";
 
+    int score = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,10 +79,6 @@ public class quiz extends AppCompatActivity implements View.OnClickListener {
         ansC.setText(questionsAnswer.choices[currentQuestionIndex][2]);
         ansD.setText(questionsAnswer.choices[currentQuestionIndex][3]);
         submit.setEnabled(false);
-    }
-
-    @Override
-    public void onClick(View view) {
         ansA.setBackgroundColor(Color.WHITE);
         ansB.setBackgroundColor(Color.WHITE);
         ansC.setBackgroundColor(Color.WHITE);
@@ -90,23 +88,44 @@ public class quiz extends AppCompatActivity implements View.OnClickListener {
         ansB.setEnabled(true);
         ansC.setEnabled(true);
         ansD.setEnabled(true);
+    }
 
-
+    @Override
+    public void onClick(View view) {
         Button clickedButton = (Button) view;
 
         selectedAnswer = clickedButton.getText().toString();
-        if (selectedAnswer.equals(questionsAnswer.correctAnswers[currentQuestionIndex])) {
-            clickedButton.setBackgroundColor(Color.GREEN);
+        if (selectedAnswer.equals(questionsAnswer.correctAnswers[currentQuestionIndex]) ||
+                !selectedAnswer.equals(questionsAnswer.correctAnswers[currentQuestionIndex])) {
+            ansA.setBackgroundColor(Color.RED);
+            ansB.setBackgroundColor(Color.RED);
+            ansC.setBackgroundColor(Color.RED);
+            ansD.setBackgroundColor(Color.RED);
+            if (currentQuestionIndex == 0)
+                ansC.setBackgroundColor(Color.GREEN);
+            else if (currentQuestionIndex == 1)
+                ansA.setBackgroundColor(Color.GREEN);
+            else if (currentQuestionIndex == 2)
+                ansA.setBackgroundColor(Color.GREEN);
+            else if (currentQuestionIndex == 3)
+                ansC.setBackgroundColor(Color.GREEN);
+            else if (currentQuestionIndex == 4)
+                ansB.setBackgroundColor(Color.GREEN);
+            else if (currentQuestionIndex == 5)
+                ansD.setBackgroundColor(Color.GREEN);
+            else
+                ansA.setBackgroundColor(Color.GREEN);
             ansA.setEnabled(false);
             ansB.setEnabled(false);
             ansC.setEnabled(false);
             ansD.setEnabled(false);
             submit.setEnabled(true);
-        } else if (clickedButton.getId() == R.id.submit) {
+        }
+        if (selectedAnswer.equals(questionsAnswer.correctAnswers[currentQuestionIndex]))
+            score++;
+        if (clickedButton.getId() == R.id.submit) {
             currentQuestionIndex++;
             loadNewQuestion();
-        } else {
-            clickedButton.setBackgroundColor(Color.RED);
         }
     }
 
@@ -114,6 +133,7 @@ public class quiz extends AppCompatActivity implements View.OnClickListener {
 
         new AlertDialog.Builder(this )
                 .setTitle("Testas baigtas")
+                .setMessage("Jūsų rezultatas: " + score + "/7")
                 .setPositiveButton("Kartoti testą", (dialogInterface, i) -> restartQuiz() )
                 .setNegativeButton("Grįžti į pagrindinį meniu", new DialogInterface.OnClickListener() {
                     @Override
