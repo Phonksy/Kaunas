@@ -8,20 +8,29 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Debug;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
 
 public class hotels extends AppCompatActivity {
-
-    String []data = {"Hotel1", "hotel2", "hotel3"};
-
+    RecyclerView recyclerView;
+    ArrayList<String> Pavadinimai;
+    ArrayList<String> Adresai;
+    ArrayList<String> Vertinimai;
+    MyAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,18 +42,31 @@ public class hotels extends AppCompatActivity {
 
         ImageView back = (ImageView) findViewById(R.id.back);
 
-        // DUOMENŲ BAZĖ
+        // DUOMENYS
 
-        List<String> items = new LinkedList<>();
-        items.add("Code it");
+        Pavadinimai = new ArrayList<>();
+        Pavadinimai.add("HOF hotel");
+        Pavadinimai.add("Kaunas Garden");
+        Pavadinimai.add("Guest house");
+        Pavadinimai.add("Happy inn");
+        Adresai = new ArrayList<>();
+        Adresai.add("Maironio g. 21A");
+        Adresai.add("Laisvės alėja 38e");
+        Adresai.add("Rotušės a. 21");
+        Adresai.add("Vytauto pr. 21");
+        Vertinimai = new ArrayList<>();
+        Vertinimai.add("4 žvaigždutės");
+        Vertinimai.add("3 žvaigždutės");
+        Vertinimai.add("5 žvaigždutės");
+        Vertinimai.add("4 žvaigždutės");
 
-        RecyclerView recyclerView = findViewById(R.id.duom);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        hotelsAdapter adapter = new hotelsAdapter(items);
+        recyclerView = findViewById(R.id.recyclerview);
+        adapter = new MyAdapter(this, Pavadinimai, Adresai, Vertinimai);
         recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
 
-        // DUOMENŲ BAZĖ
+        // DUOMENYS
 
 
         back.setOnClickListener(new View.OnClickListener() {
