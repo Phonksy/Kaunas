@@ -86,38 +86,29 @@ public class hotels extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected (@NonNull MenuItem item)
-    {
-        switch(item.getItemId()) {
-            case
-                    R.id.nav_about:
-                Intent intent = new Intent(hotels.this, aboutKaunas.class);
-                startActivity(intent);
-                break;
-            case
-                    R.id.nav_food:
-                Intent intent2 = new Intent(hotels.this, bestRestaurants.class);
-                startActivity(intent2);
-                break;
-            case
-                    R.id.nav_places:
-                Intent intent3 = new Intent(hotels.this, placesToVisit.class);
-                startActivity(intent3);
-                break;
-            case
-                    R.id.nav_quiz:
-                Intent intent4 = new Intent(hotels.this, quiz.class);
-                startActivity(intent4);
-                break;
-            case
-                    R.id.nav_news:
-                gotoUrl("https://kauno.diena.lt");
-                break;
-
-            default:
-                break;
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int itemId = item.getItemId();
+        if (itemId == R.id.nav_about) {
+            Intent intent = new Intent(hotels.this, aboutKaunas.class);
+            startActivity(intent);
+            return true;
+        } else if (itemId == R.id.nav_food) {
+            Intent intent2 = new Intent(hotels.this, bestRestaurants.class);
+            startActivity(intent2);
+            return true;
+        } else if (itemId == R.id.nav_places) {
+            Intent intent3 = new Intent(hotels.this, placesToVisit.class);
+            startActivity(intent3);
+            return true;
+        } else if (itemId == R.id.nav_quiz) {
+            Intent intent4 = new Intent(hotels.this, quiz.class);
+            startActivity(intent4);
+            return true;
+        } else if (itemId == R.id.nav_news) {
+            gotoUrl("https://kauno.diena.lt");
+            return true;
         }
-        return true;
+        return super.onOptionsItemSelected(item);
     }
 
     private void gotoUrl(String s) {

@@ -17,7 +17,6 @@ import android.widget.ImageView;
 
 public class aboutKaunas extends AppCompatActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,31 +45,30 @@ public class aboutKaunas extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.nav_food:
-                Intent intent2 = new Intent(aboutKaunas.this, bestRestaurants.class);
-                startActivity(intent2);
-                break;
-            case R.id.nav_places:
-                Intent intent3 = new Intent(aboutKaunas.this, placesToVisit.class);
-                startActivity(intent3);
-                break;
-            case R.id.nav_quiz:
-                Intent intent4 = new Intent(aboutKaunas.this, quiz.class);
-                startActivity(intent4);
-                break;
-            case R.id.nav_hotels:
-                Intent intent5 = new Intent(aboutKaunas.this, hotels.class);
-                startActivity(intent5);
-                break;
-            case R.id.nav_news:
-                gotoUrl("https://kauno.diena.lt");
-                break;
+        int id = item.getItemId();
 
-            default:
-                break;
+        if (id == R.id.nav_food) {
+            Intent intent2 = new Intent(aboutKaunas.this, bestRestaurants.class);
+            startActivity(intent2);
+            return true;
+        } else if (id == R.id.nav_places) {
+            Intent intent3 = new Intent(aboutKaunas.this, placesToVisit.class);
+            startActivity(intent3);
+            return true;
+        } else if (id == R.id.nav_quiz) {
+            Intent intent4 = new Intent(aboutKaunas.this, quiz.class);
+            startActivity(intent4);
+            return true;
+        } else if (id == R.id.nav_hotels) {
+            Intent intent5 = new Intent(aboutKaunas.this, hotels.class);
+            startActivity(intent5);
+            return true;
+        } else if (id == R.id.nav_news) {
+            gotoUrl("https://kauno.diena.lt");
+            return true;
         }
-        return true;
+
+        return super.onOptionsItemSelected(item);
     }
 
 
