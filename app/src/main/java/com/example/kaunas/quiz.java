@@ -97,24 +97,24 @@ public class quiz extends AppCompatActivity implements View.OnClickListener {
         selectedAnswer = clickedButton.getText().toString();
         if (selectedAnswer.equals(questionsAnswer.correctAnswers[currentQuestionIndex]) ||
                 !selectedAnswer.equals(questionsAnswer.correctAnswers[currentQuestionIndex])) {
-            ansA.setBackgroundColor(Color.RED);
-            ansB.setBackgroundColor(Color.RED);
-            ansC.setBackgroundColor(Color.RED);
-            ansD.setBackgroundColor(Color.RED);
+            ansA.setBackgroundColor(Color.parseColor("#ff6961"));
+            ansB.setBackgroundColor(Color.parseColor("#ff6961"));
+            ansC.setBackgroundColor(Color.parseColor("#ff6961"));
+            ansD.setBackgroundColor(Color.parseColor("#ff6961"));
             if (currentQuestionIndex == 0)
-                ansC.setBackgroundColor(Color.GREEN);
+                ansC.setBackgroundColor(Color.parseColor("#77dd77"));
             else if (currentQuestionIndex == 1)
-                ansA.setBackgroundColor(Color.GREEN);
+                ansA.setBackgroundColor(Color.parseColor("#77dd77"));
             else if (currentQuestionIndex == 2)
-                ansA.setBackgroundColor(Color.GREEN);
+                ansA.setBackgroundColor(Color.parseColor("#77dd77"));
             else if (currentQuestionIndex == 3)
-                ansC.setBackgroundColor(Color.GREEN);
+                ansC.setBackgroundColor(Color.parseColor("#77dd77"));
             else if (currentQuestionIndex == 4)
-                ansB.setBackgroundColor(Color.GREEN);
+                ansB.setBackgroundColor(Color.parseColor("#77dd77"));
             else if (currentQuestionIndex == 5)
-                ansD.setBackgroundColor(Color.GREEN);
+                ansD.setBackgroundColor(Color.parseColor("#77dd77"));
             else
-                ansA.setBackgroundColor(Color.GREEN);
+                ansA.setBackgroundColor(Color.parseColor("#77dd77"));
             ansA.setEnabled(false);
             ansB.setEnabled(false);
             ansC.setEnabled(false);
