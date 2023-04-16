@@ -18,6 +18,9 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar"
         tools:targetApi="31">
         <activity
+            android:name=".feedbackList"
+            android:exported="false" />
+        <activity
             android:name=".feedback"
             android:exported="false" />
         <activity
@@ -47,7 +50,7 @@
 
         <meta-data
             android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts"/>
+            android:resource="@array/preloaded_fonts" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyALz8ElyJndD4QWk5al04LXr-ZWZYY8AJw" />

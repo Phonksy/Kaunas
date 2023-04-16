@@ -3,6 +3,8 @@ package com.example.kaunas;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -12,7 +14,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
+import java.util.ArrayList;
+
 public class bestRestaurants extends AppCompatActivity {
+
+    RecyclerView recyclerView;
+    ArrayList<String> Pavadinimai;
+    ArrayList<String> Adresai;
+    ArrayList<String> Vertinimai;
+    MyAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +34,40 @@ public class bestRestaurants extends AppCompatActivity {
         getSupportActionBar().setTitle(null);
 
         ImageView back = (ImageView) findViewById(R.id.back);
+
+        // DUOMENYS
+
+        Pavadinimai = new ArrayList<>();
+        Pavadinimai.add("Mamma Pizza");
+        Pavadinimai.add("Jurgis ir Drakonas");
+        Pavadinimai.add("Manami");
+        Pavadinimai.add("Katpėdėlė");
+        Pavadinimai.add("Restoranas DIA");
+        Pavadinimai.add("Agave");
+        Pavadinimai.add("Restoranas Siesta");
+        Adresai = new ArrayList<>();
+        Adresai.add("Vytauto pr. 37");
+        Adresai.add("Kurpių g. 26");
+        Adresai.add("Islandijos pl. 32, PLC Mega");
+        Adresai.add("V. Krėvės pr. 57");
+        Adresai.add("Maironio g. 9");
+        Adresai.add("Rotušės a. 3");
+        Adresai.add("Pakrantės g. 4, Vareikonys, Kauno r.");
+        Vertinimai = new ArrayList<>();
+        Vertinimai.add("4.5 žvaigždutės");
+        Vertinimai.add("4.5 žvaigždutės");
+        Vertinimai.add("4.5 žvaigždutės");
+        Vertinimai.add("5 žvaigždutės");
+        Vertinimai.add("4.5 žvaigždutės");
+        Vertinimai.add("4.5 žvaigždutės");
+        Vertinimai.add("4.5 žvaigždutės");
+
+        recyclerView = findViewById(R.id.recyclerview);
+        adapter = new MyAdapter(this, Pavadinimai, Adresai, Vertinimai);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        // DUOMENYS
+
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override

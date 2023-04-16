@@ -49,15 +49,27 @@ public class hotels extends AppCompatActivity {
         Pavadinimai.add("Kaunas Garden");
         Pavadinimai.add("Guest house");
         Pavadinimai.add("Happy inn");
+        Pavadinimai.add("Moxy Kaunas Center");
+        Pavadinimai.add("Very bad hootel");
+        Pavadinimai.add("Kaunas City");
+        Pavadinimai.add("Radisson Hotel Kaunas");
         Adresai = new ArrayList<>();
         Adresai.add("Maironio g. 21A");
         Adresai.add("Laisvės alėja 38e");
         Adresai.add("Rotušės a. 21");
         Adresai.add("Vytauto pr. 21");
+        Adresai.add("Maironio g. 19");
+        Adresai.add("Žemaičių g. 144");
+        Adresai.add("Laisvės alėja 90");
+        Adresai.add("K. Donelaičio g. 27");
         Vertinimai = new ArrayList<>();
         Vertinimai.add("4 žvaigždutės");
         Vertinimai.add("3 žvaigždutės");
         Vertinimai.add("5 žvaigždutės");
+        Vertinimai.add("4 žvaigždutės");
+        Vertinimai.add("4.5 žvaigždutės");
+        Vertinimai.add("4.5 žvaigždutės");
+        Vertinimai.add("4 žvaigždutės");
         Vertinimai.add("4 žvaigždutės");
 
         recyclerView = findViewById(R.id.recyclerview);

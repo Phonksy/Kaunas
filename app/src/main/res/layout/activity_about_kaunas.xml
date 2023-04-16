@@ -85,7 +85,8 @@
                 android:fontFamily="@font/atma_semibold"
                 android:text="Kaunas yra padalintas į 11 seniūnijų:"
                 android:textAlignment="center"
-                android:textColor="#000000" />
+                android:textColor="#000000"
+                android:textSize="16dp" />
 
             <ImageView
                 android:id="@+id/imageView3"
@@ -102,7 +103,8 @@
                 android:fontFamily="@font/atma_semibold"
                 android:text="Kaunas taip pat turi savo herbą:"
                 android:textAlignment="center"
-                android:textColor="#000000" />
+                android:textColor="#000000"
+                android:textSize="16dp" />
 
             <ImageView
                 android:id="@+id/imageView4"
@@ -120,7 +122,8 @@
                 android:fontFamily="@font/atma_semibold"
                 android:text="Kauno mieste gyvena 10,6 % visų Lietuvos gyventojų. Pagal tautybę apie 93 % miesto gyventojų yra lietuviai, 4 % – rusai, kitų tautybių – 3 %. 2001 m. gyventojų surašymo duomenimis, mieste gyvenančios tautinės mažumos (žmonių skaičius): rusai (16 622), ukrainiečiai (1906), lenkai (1600), baltarusai (1142), žydai (427), vokiečiai (378), čigonai (364), latviai – (211), totoriai (200), armėnai (141), kitų tautybių (534)."
                 android:textAlignment="center"
-                android:textColor="#000000" />
+                android:textColor="#000000"
+                android:textSize="16dp" />
 
             <ImageView
                 android:id="@+id/imageView"
