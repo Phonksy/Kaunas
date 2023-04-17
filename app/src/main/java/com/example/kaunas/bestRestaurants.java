@@ -63,7 +63,7 @@ public class bestRestaurants extends AppCompatActivity {
         Vertinimai.add("4.5 žvaigždutės");
 
         recyclerView = findViewById(R.id.recyclerview);
-        adapter = new MyAdapter(this, Pavadinimai, Adresai, Vertinimai);
+        adapter = new MyAdapter(this, Pavadinimai);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         // DUOMENYS

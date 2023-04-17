@@ -13,20 +13,19 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     private Context context;
-    private ArrayList pavadinimai;
+    private List viesbuciai;
     private ArrayList adresai;
     private ArrayList vertinimai;
 
-    public MyAdapter(Context context, ArrayList pavadinimai, ArrayList adresai, ArrayList vertinimai)
+    public MyAdapter(Context context, List viesbuciai)
     {
         this.context=context;
-        this.pavadinimai=pavadinimai;
-        this.adresai=adresai;
-        this.vertinimai=vertinimai;
+        this.viesbuciai=viesbuciai;
     }
 
     @NonNull
@@ -38,14 +37,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.name_id.setText(String.valueOf(pavadinimai.get(position)));
-        holder.address_id.setText(String.valueOf(adresai.get(position)));
-        holder.rating_id.setText(String.valueOf(vertinimai.get(position)));
+        Hotel obj = (Hotel) viesbuciai.get(position);
+        holder.name_id.setText(String.valueOf(obj.getPavadinimas()));
+        holder.address_id.setText(String.valueOf(obj.getAdresas()));
+        holder.rating_id.setText(String.valueOf(obj.getVertinimas()));
     }
 
     @Override
     public int getItemCount() {
-        return pavadinimai.size();
+        return viesbuciai.size();
     }
 
 
