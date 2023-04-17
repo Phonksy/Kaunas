@@ -1,6 +1,7 @@
 package com.example.kaunas;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -22,8 +23,10 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.ListIterator;
 
 public class hotels extends AppCompatActivity {
     RecyclerView recyclerView;
@@ -31,6 +34,8 @@ public class hotels extends AppCompatActivity {
     ArrayList<String> Adresai;
     ArrayList<String> Vertinimai;
     MyAdapter adapter;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,40 +48,35 @@ public class hotels extends AppCompatActivity {
         ImageView back = (ImageView) findViewById(R.id.back);
 
         // DUOMENYS
+        AppDatabase db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "Hotels").allowMainThreadQueries().build();
 
-        Pavadinimai = new ArrayList<>();
-        Pavadinimai.add("HOF hotel");
-        Pavadinimai.add("Kaunas Garden");
-        Pavadinimai.add("Guest house");
-        Pavadinimai.add("Happy inn");
-        Pavadinimai.add("Moxy Kaunas Center");
-        Pavadinimai.add("Very bad hootel");
-        Pavadinimai.add("Kaunas City");
-        Pavadinimai.add("Radisson Hotel Kaunas");
-        Adresai = new ArrayList<>();
-        Adresai.add("Maironio g. 21A");
-        Adresai.add("Laisvės alėja 38e");
-        Adresai.add("Rotušės a. 21");
-        Adresai.add("Vytauto pr. 21");
-        Adresai.add("Maironio g. 19");
-        Adresai.add("Žemaičių g. 144");
-        Adresai.add("Laisvės alėja 90");
-        Adresai.add("K. Donelaičio g. 27");
-        Vertinimai = new ArrayList<>();
-        Vertinimai.add("4 žvaigždutės");
-        Vertinimai.add("3 žvaigždutės");
-        Vertinimai.add("5 žvaigždutės");
-        Vertinimai.add("4 žvaigždutės");
-        Vertinimai.add("4.5 žvaigždutės");
-        Vertinimai.add("4.5 žvaigždutės");
-        Vertinimai.add("4 žvaigždutės");
-        Vertinimai.add("4 žvaigždutės");
+        List<Hotel> viesbuciai;
+        db.hotelDao().nukeTable();
+
+        Hotel viesbutis1 = new Hotel("HOF hotel", "Maironio g. 21A", "4 žvaigždutės");
+        Hotel viesbutis2 = new Hotel("Kaunas Garden", "Laisvės al. 38E", "3 žvaigždutės");
+        Hotel viesbutis3 = new Hotel("Guest house", "Rotušės a. 21", "5 žvaigždutės");
+        Hotel viesbutis4 = new Hotel("Happy Inn", "Vytauto pr. 21", "4 žvaigždutės");
+        Hotel viesbutis5 = new Hotel("Moxy Kaunas Center", "Maironio g. 19", "4.5 žvaigždutės");
+        Hotel viesbutis6 = new Hotel("Very Bad Hootel", "Žemaičių g. 144", "4.5 žvaigždutės");
+        Hotel viesbutis7 = new Hotel("Kaunas City", "Laisvės al. 90", "4 žvaigždutės");
+        Hotel viesbutis8 = new Hotel("Radisson Hotel", "K. Donelaičio g. 27", "4 žvaigždutės");
+
+        db.hotelDao().insertAll(viesbutis1);
+        db.hotelDao().insertAll(viesbutis2);
+        db.hotelDao().insertAll(viesbutis3);
+        db.hotelDao().insertAll(viesbutis4);
+        db.hotelDao().insertAll(viesbutis5);
+        db.hotelDao().insertAll(viesbutis6);
+        db.hotelDao().insertAll(viesbutis7);
+        db.hotelDao().insertAll(viesbutis8);
+
+        viesbuciai = db.hotelDao().getAllHotels();
 
         recyclerView = findViewById(R.id.recyclerview);
-        adapter = new MyAdapter(this, Pavadinimai, Adresai, Vertinimai);
+        adapter = new MyAdapter(this, viesbuciai);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
 
         // DUOMENYS
 

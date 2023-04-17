@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button feedback;
 
-    private final String url = "https://api.openweathermap.org/data/2.5/weather?q=Kaunas&appid=RAKTAS";
+    private final String url = "https://api.openweathermap.org/data/2.5/weather?q=Kaunas&appid=754bd930c832caf89b0b549909da0b45";
     private static final DecimalFormat df = new DecimalFormat("0.0");
 
     @Override
