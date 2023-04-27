@@ -20,4 +20,7 @@
         <item
             android:id="@+id/nav_news"
             android:title="Naujienos" />
+        <item
+            android:id="@+id/nav_feedback"
+            android:title="Atsiliepimai" />
 </menu>

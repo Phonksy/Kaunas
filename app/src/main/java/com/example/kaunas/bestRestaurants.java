@@ -108,6 +108,10 @@ public class bestRestaurants extends AppCompatActivity {
         } else if (id == R.id.nav_news) {
             gotoUrl("https://kauno.diena.lt");
             return true;
+        } else if (id == R.id.nav_feedback) {
+            Intent intent6 = new Intent(this, feedback.class);
+            startActivity(intent6);
+            return true;
         }
 
         return super.onOptionsItemSelected(item);

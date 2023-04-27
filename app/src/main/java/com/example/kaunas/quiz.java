@@ -180,6 +180,10 @@ public class quiz extends AppCompatActivity implements View.OnClickListener {
         } else if (id == R.id.nav_news) {
             gotoUrl("https://kauno.diena.lt");
             return true;
+        } else if (id == R.id.nav_feedback) {
+            Intent intent6 = new Intent(quiz.this, feedback.class);
+            startActivity(intent6);
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }

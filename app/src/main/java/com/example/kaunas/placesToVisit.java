@@ -149,6 +149,10 @@ public class placesToVisit extends AppCompatActivity implements OnMapReadyCallba
         } else if (id == R.id.nav_news) {
             gotoUrl("https://kauno.diena.lt");
             return true;
+        } else if (id == R.id.nav_feedback) {
+            Intent intent6 = new Intent(placesToVisit.this, feedback.class);
+            startActivity(intent6);
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
