@@ -30,9 +30,6 @@ import java.util.ListIterator;
 
 public class hotels extends AppCompatActivity {
     RecyclerView recyclerView;
-    ArrayList<String> Pavadinimai;
-    ArrayList<String> Adresai;
-    ArrayList<String> Vertinimai;
     MyAdapter adapter;
 
 
@@ -48,19 +45,19 @@ public class hotels extends AppCompatActivity {
         ImageView back = (ImageView) findViewById(R.id.back);
 
         // DUOMENYS
-        AppDatabase db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "Hotels").allowMainThreadQueries().build();
+        AppDatabase db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "Hotels").allowMainThreadQueries().fallbackToDestructiveMigration().build();
 
         List<Hotel> viesbuciai;
         db.hotelDao().nukeTable();
 
-        Hotel viesbutis1 = new Hotel("HOF hotel", "Maironio g. 21A", "4 žvaigždutės");
-        Hotel viesbutis2 = new Hotel("Kaunas Garden", "Laisvės al. 38E", "3 žvaigždutės");
-        Hotel viesbutis3 = new Hotel("Guest house", "Rotušės a. 21", "5 žvaigždutės");
-        Hotel viesbutis4 = new Hotel("Happy Inn", "Vytauto pr. 21", "4 žvaigždutės");
-        Hotel viesbutis5 = new Hotel("Moxy Kaunas Center", "Maironio g. 19", "4.5 žvaigždutės");
-        Hotel viesbutis6 = new Hotel("Very Bad Hootel", "Žemaičių g. 144", "4.5 žvaigždutės");
-        Hotel viesbutis7 = new Hotel("Kaunas City", "Laisvės al. 90", "4 žvaigždutės");
-        Hotel viesbutis8 = new Hotel("Radisson Hotel", "K. Donelaičio g. 27", "4 žvaigždutės");
+        Hotel viesbutis1 = new Hotel("HOF hotel", "Maironio g. 21A", "4 žvaigždutės", "https://www.hofhotel.eu");
+        Hotel viesbutis2 = new Hotel("Kaunas Garden", "Laisvės al. 38E", "3 žvaigždutės", "https://www.kaunasgarden.lt");
+        Hotel viesbutis3 = new Hotel("Guest house", "Rotušės a. 21", "5 žvaigždutės", "http://kaunas.lcn.lt/sveciunamai/en/");
+        Hotel viesbutis4 = new Hotel("Happy Inn", "Vytauto pr. 21", "4 žvaigždutės", "https://www.facebook.com/trumpalaikenuoma/");
+        Hotel viesbutis5 = new Hotel("Moxy Kaunas Center", "Maironio g. 19", "4.5 žvaigždutės", "https://www.facebook.com/Moxykaunascenter/");
+        Hotel viesbutis6 = new Hotel("Very Bad Hotel", "Žemaičių g. 144", "4.5 žvaigždutės", "https://verybadhotel.lt");
+        Hotel viesbutis7 = new Hotel("Kaunas City", "Laisvės al. 90", "4 žvaigždutės", "https://kaunascityhotel.com/en/");
+        Hotel viesbutis8 = new Hotel("Radisson Hotel", "K. Donelaičio g. 27", "4 žvaigždutės", "https://www.radissonhotels.com/en-us/hotels/radisson-kaunas");
 
         db.hotelDao().insertAll(viesbutis1);
         db.hotelDao().insertAll(viesbutis2);
@@ -118,6 +115,10 @@ public class hotels extends AppCompatActivity {
             return true;
         } else if (itemId == R.id.nav_news) {
             gotoUrl("https://kauno.diena.lt");
+            return true;
+        } else if (itemId == R.id.nav_feedback) {
+            Intent intent6 = new Intent(hotels.this, feedback.class);
+            startActivity(intent6);
             return true;
         }
         return super.onOptionsItemSelected(item);

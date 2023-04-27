@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="135dp"
     app:cardCornerRadius="16dp"
@@ -8,23 +9,22 @@
     app:cardUseCompatPadding="true">
 
     <LinearLayout
-        android:layout_width="378dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
         android:background="#FFFFFF"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/textname"
             android:layout_width="match_parent"
-            android:layout_height="41dp"
+            android:layout_height="30dp"
             android:background="#FFFFFF"
             android:fontFamily="@font/atma_semibold"
             android:text="Pavadinimas"
-            android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="23dp">
+            android:textSize="20dp">
 
         </TextView>
 
@@ -35,7 +35,6 @@
             android:background="#FFFFFF"
             android:fontFamily="@font/atma_semibold"
             android:text="Adresas"
-            android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="16dp">
 
@@ -48,12 +47,44 @@
             android:background="#FFFFFF"
             android:fontFamily="@font/atma_semibold"
             android:text="Vertinimas"
-            android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="16dp">
 
         </TextView>
 
+
+
     </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <Button
+            android:id="@+id/eiti"
+            android:layout_width="110dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="9dp"
+            android:layout_marginEnd="13dp"
+            android:text="EITI Į SVETAINĘ"
+            android:fontFamily="@font/atma_semibold"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dalintis" />
+
+        <Button
+            android:id="@+id/dalintis"
+            android:layout_width="110dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="13dp"
+            android:text="DALINTIS"
+            android:fontFamily="@font/atma_semibold"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </androidx.cardview.widget.CardView>
