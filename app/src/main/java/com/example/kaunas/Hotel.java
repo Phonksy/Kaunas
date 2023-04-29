@@ -22,12 +22,20 @@ public class Hotel {
     @ColumnInfo (name = "svetaine")
     public String svetaine;
 
-    public Hotel (String pavadinimas, String adresas, String vertinimas, String svetaine)
+    @ColumnInfo (name = "foto")
+    public int foto;
+
+    @ColumnInfo (name = "nuorodos")
+    public String nuorodos;
+
+    public Hotel (String pavadinimas, String adresas, String vertinimas, String svetaine, int foto, String nuorodos)
     {
         this.pavadinimas=pavadinimas;
         this.adresas=adresas;
         this.vertinimas=vertinimas;
         this.svetaine=svetaine;
+        this.foto=foto;
+        this.nuorodos=nuorodos;
     }
 
     public String getPavadinimas () {
@@ -43,5 +51,12 @@ public class Hotel {
     }
     public String getSvetaine () {
         return svetaine;
+    }
+
+    public int getFoto () {
+        return foto;
+    }
+    public String getNuorodos () {
+        return nuorodos;
     }
 }

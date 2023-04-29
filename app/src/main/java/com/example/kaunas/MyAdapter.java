@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -57,6 +58,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                     }
                 }
         );
+
+        holder.foto.setImageResource(obj.getFoto());
+        holder.nuorodos.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        gotoUrl(obj.getNuorodos());
+                    }
+                }
+        );
     }
 
     @Override
@@ -67,7 +78,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
         TextView name_id, address_id, rating_id;
-        Button svetaine, dalintis;
+        Button svetaine, dalintis, nuorodos;
+        ImageView foto;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             name_id = itemView.findViewById(R.id.textname);
@@ -75,6 +87,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             rating_id=itemView.findViewById(R.id.textrating);
             svetaine =itemView.findViewById(R.id.eiti);
             dalintis =itemView.findViewById(R.id.dalintis);
+            foto = itemView.findViewById(R.id.nuotrauka);
+            nuorodos=itemView.findViewById(R.id.nuorodos);
         }
     }
 

@@ -50,14 +50,14 @@ public class hotels extends AppCompatActivity {
         List<Hotel> viesbuciai;
         db.hotelDao().nukeTable();
 
-        Hotel viesbutis1 = new Hotel("HOF hotel", "Maironio g. 21A", "4 žvaigždutės", "https://www.hofhotel.eu");
-        Hotel viesbutis2 = new Hotel("Kaunas Garden", "Laisvės al. 38E", "3 žvaigždutės", "https://www.kaunasgarden.lt");
-        Hotel viesbutis3 = new Hotel("Guest house", "Rotušės a. 21", "5 žvaigždutės", "http://kaunas.lcn.lt/sveciunamai/en/");
-        Hotel viesbutis4 = new Hotel("Happy Inn", "Vytauto pr. 21", "4 žvaigždutės", "https://www.facebook.com/trumpalaikenuoma/");
-        Hotel viesbutis5 = new Hotel("Moxy Kaunas Center", "Maironio g. 19", "4.5 žvaigždutės", "https://www.facebook.com/Moxykaunascenter/");
-        Hotel viesbutis6 = new Hotel("Very Bad Hotel", "Žemaičių g. 144", "4.5 žvaigždutės", "https://verybadhotel.lt");
-        Hotel viesbutis7 = new Hotel("Kaunas City", "Laisvės al. 90", "4 žvaigždutės", "https://kaunascityhotel.com/en/");
-        Hotel viesbutis8 = new Hotel("Radisson Hotel", "K. Donelaičio g. 27", "4 žvaigždutės", "https://www.radissonhotels.com/en-us/hotels/radisson-kaunas");
+        Hotel viesbutis1 = new Hotel("HOF hotel", "Maironio g. 21A", "4 žvaigždutės", "https://www.hofhotel.eu", R.drawable.hof_hotel, "https://goo.gl/maps/BvcjuhFkPjEXBfsy6");
+        Hotel viesbutis2 = new Hotel("Kaunas Garden", "Laisvės al. 38E", "3 žvaigždutės", "https://www.kaunasgarden.lt", R.drawable.kaunas_garden, "https://goo.gl/maps/d6dM1QigPYy98oSC9");
+        Hotel viesbutis3 = new Hotel("Guest house", "Rotušės a. 21", "5 žvaigždutės", "http://kaunas.lcn.lt/sveciunamai/en/", R.drawable.guest_house, "https://goo.gl/maps/vGJJJheBGG7tMCdW8");
+        Hotel viesbutis4 = new Hotel("Happy Inn", "Vytauto pr. 21", "4 žvaigždutės", "https://www.facebook.com/trumpalaikenuoma/", R.drawable.happy_inn, "https://goo.gl/maps/kE89p3brMVYUcPaKA");
+        Hotel viesbutis5 = new Hotel("Moxy Kaunas Center", "Maironio g. 19", "4.5 žvaigždutės", "https://www.facebook.com/Moxykaunascenter/", R.drawable.moxy_kaunas_center, "https://goo.gl/maps/gru7xMfTAnW2ArtS7");
+        Hotel viesbutis6 = new Hotel("Very Bad Hotel", "Žemaičių g. 144", "4.5 žvaigždutės", "https://verybadhotel.lt", R.drawable.very_bad_hotel, "https://goo.gl/maps/J8QBnMrMsG7sHQws8");
+        Hotel viesbutis7 = new Hotel("Kaunas City", "Laisvės al. 90", "4 žvaigždutės", "https://kaunascityhotel.com/en/", R.drawable.kaunas_city, "https://goo.gl/maps/VeGtziUxtZD3VWYRA");
+        Hotel viesbutis8 = new Hotel("Radisson Hotel", "K. Donelaičio g. 27", "4 žvaigždutės", "https://www.radissonhotels.com/en-us/hotels/radisson-kaunas", R.drawable.radisson_hotel, "https://goo.gl/maps/d3e6jKcZnsXMy8Y57");
 
         db.hotelDao().insertAll(viesbutis1);
         db.hotelDao().insertAll(viesbutis2);
