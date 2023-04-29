@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="135dp"
+    android:layout_height="200dp"
     app:cardCornerRadius="16dp"
     app:cardElevation="3dp"
     app:cardUseCompatPadding="true">
@@ -62,27 +62,49 @@
 
         <Button
             android:id="@+id/eiti"
-            android:layout_width="110dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="9dp"
-            android:layout_marginEnd="13dp"
-            android:text="EITI Į SVETAINĘ"
-            android:fontFamily="@font/atma_semibold"
+            android:layout_width="105dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="128dp"
             android:background="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dalintis" />
+            android:fontFamily="@font/atma_semibold"
+            android:text="EITI Į SVETAINĘ"
+            app:layout_constraintStart_toEndOf="@+id/dalintis"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/dalintis"
-            android:layout_width="110dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="13dp"
-            android:text="DALINTIS"
-            android:fontFamily="@font/atma_semibold"
+            android:layout_width="96dp"
+            android:layout_height="37dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="128dp"
             android:background="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:fontFamily="@font/atma_semibold"
+            android:text="DALINTIS"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/nuorodos"
+            android:layout_width="103dp"
+            android:layout_height="36dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="128dp"
+            android:background="@color/white"
+            android:fontFamily="@font/atma_semibold"
+            android:text="NUORODOS"
+            app:layout_constraintStart_toEndOf="@+id/eiti"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/nuotrauka"
+            android:layout_width="134dp"
+            android:layout_height="85dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/happy_inn" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
