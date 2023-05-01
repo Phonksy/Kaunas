@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -15,6 +16,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class bestRestaurants extends AppCompatActivity {
 
@@ -37,33 +39,33 @@ public class bestRestaurants extends AppCompatActivity {
 
         // DUOMENYS
 
-        Pavadinimai = new ArrayList<>();
-        Pavadinimai.add("Mamma Pizza");
-        Pavadinimai.add("Jurgis ir Drakonas");
-        Pavadinimai.add("Manami");
-        Pavadinimai.add("Katpėdėlė");
-        Pavadinimai.add("Restoranas DIA");
-        Pavadinimai.add("Agave");
-        Pavadinimai.add("Restoranas Siesta");
-        Adresai = new ArrayList<>();
-        Adresai.add("Vytauto pr. 37");
-        Adresai.add("Kurpių g. 26");
-        Adresai.add("Islandijos pl. 32, PLC Mega");
-        Adresai.add("V. Krėvės pr. 57");
-        Adresai.add("Maironio g. 9");
-        Adresai.add("Rotušės a. 3");
-        Adresai.add("Pakrantės g. 4, Vareikonys, Kauno r.");
-        Vertinimai = new ArrayList<>();
-        Vertinimai.add("4.5 žvaigždutės");
-        Vertinimai.add("4.5 žvaigždutės");
-        Vertinimai.add("4.5 žvaigždutės");
-        Vertinimai.add("5 žvaigždutės");
-        Vertinimai.add("4.5 žvaigždutės");
-        Vertinimai.add("4.5 žvaigždutės");
-        Vertinimai.add("4.5 žvaigždutės");
+        AppDatabase db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "Restaurants").allowMainThreadQueries().fallbackToDestructiveMigration().build();
+
+        List<Hotel> restoranai;
+        db.hotelDao().nukeTable();
+
+        Hotel restoranas1 = new Hotel("Mamma Pizza", "Vytauto pr. 37", "4.5 žvaigždutės", "https://www.mammapizza.lt", R.drawable.mamma_pizza, "https://goo.gl/maps/6KSu83RjuyLr3X8Q8");
+        Hotel restoranas2 = new Hotel("Jurgis ir Drakonas", "Kurpių g. 26", "4.5 žvaigždutės", "https://jurgisirdrakonas.lt", R.drawable.jurgis_ir_drakonas, "https://goo.gl/maps/9BMjSFQvGNtCfSE87");
+        Hotel restoranas3 = new Hotel("Manami", "Islandijos pl. 32 PLC Mega", "4.5 žvaigždutės", "https://www.manami.lt", R.drawable.manami, "https://goo.gl/maps/8P4W1AB93UbF73Vm6");
+        Hotel restoranas4 = new Hotel("Ali Šokoladinė", "Laisvės al. 41", "5 žvaigždutės", "https://alisokoladine.lt/lt/", R.drawable.ali_sokoladine, "https://goo.gl/maps/6vuLFLDJoaksY2wg8");
+        Hotel restoranas5 = new Hotel("Talutti - Fresh and Tasty", "Taikos pr. 12", "4.5 žvaigždutės", "https://talutti.lt", R.drawable.talutti, "https://goo.gl/maps/mzJp5x56Et6QVdzK8");
+        Hotel restoranas6 = new Hotel("Casa della Pasta", "Laisvės al. 27", "4.5 žvaigždutės", "https://www.casadellapasta.lt", R.drawable.casa_della_pasta, "https://goo.gl/maps/pmdE4prHLegtxrtL6");
+        Hotel restoranas7 = new Hotel("Bernelių užeiga", "M. Valančiaus g. 9", "4 žvaigždutės", "https://berneliuuzeiga.lt", R.drawable.berneliu_uzeiga, "https://goo.gl/maps/dzmetFe8ybroazP4A");
+        Hotel restoranas8 = new Hotel("Pelėdinė", "Šv. Gertrūdos g. 22", "4.5 žvaigždutės", "https://www.peledine.lt", R.drawable.peledine, "https://goo.gl/maps/uCwTNxSRdRX8TH2X6");
+
+        db.hotelDao().insertAll(restoranas1);
+        db.hotelDao().insertAll(restoranas2);
+        db.hotelDao().insertAll(restoranas3);
+        db.hotelDao().insertAll(restoranas4);
+        db.hotelDao().insertAll(restoranas5);
+        db.hotelDao().insertAll(restoranas6);
+        db.hotelDao().insertAll(restoranas7);
+        db.hotelDao().insertAll(restoranas8);
+
+        restoranai = db.hotelDao().getAllHotels();
 
         recyclerView = findViewById(R.id.recyclerview);
-        adapter = new MyAdapter(this, Pavadinimai);
+        adapter = new MyAdapter(this, restoranai);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         // DUOMENYS
