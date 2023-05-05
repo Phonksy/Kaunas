@@ -72,8 +72,11 @@ public class feedback extends AppCompatActivity {
                     Toast.makeText(feedback.this, "Įveskite vardą", Toast.LENGTH_LONG).show();
                 else if (atsiliepimasTXT.length() < 1)
                     Toast.makeText(feedback.this, "Įveskite komentarą", Toast.LENGTH_LONG).show();
-                else
+                else {
                     paliktiAtsiliepima(vardasTXT, atsiliepimasTXT);
+                    vardas.setText("");
+                    atsiliepimas.setText("");
+                }
             }
         });
 

@@ -22,11 +22,10 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="265dp"
-        android:layout_height="81dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="72dp"
+        android:layout_width="403dp"
+        android:layout_height="79dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="552dp"
         android:fontFamily="@font/atma_semibold"
         android:text="KAUNAS"
