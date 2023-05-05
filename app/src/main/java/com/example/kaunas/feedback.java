@@ -1,5 +1,6 @@
 package com.example.kaunas;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -12,12 +13,21 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 public class feedback extends AppCompatActivity {
 
     EditText vardas, atsiliepimas;
     Button palikti, perziureti;
-
-    DBHelper DB;
+    private DatabaseReference mDatabase;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +46,9 @@ public class feedback extends AppCompatActivity {
             }
         });
 
-        DB = new DBHelper(this);
+        //DUOMBAZĖ
+
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
         vardas=findViewById(R.id.vardas);
         atsiliepimas=findViewById(R.id.atsiliepimas);
@@ -56,18 +68,37 @@ public class feedback extends AppCompatActivity {
                 String vardasTXT = vardas.getText().toString();
                 String atsiliepimasTXT = atsiliepimas.getText().toString();
 
-                Boolean checkinsertData = DB.insertFeedback(vardasTXT, atsiliepimasTXT);
-                if (checkinsertData)
-                {
-                    Toast.makeText(feedback.this, "PRIDĖTA", Toast.LENGTH_SHORT).show();
-                    vardas.setText("");
-                    atsiliepimas.setText("");
-                }
-
-                else Toast.makeText(feedback.this, "NEPRIDĖTA", Toast.LENGTH_SHORT).show();
+                if (vardasTXT.length() < 1)
+                    Toast.makeText(feedback.this, "Įveskite vardą", Toast.LENGTH_LONG).show();
+                else if (atsiliepimasTXT.length() < 1)
+                    Toast.makeText(feedback.this, "Įveskite komentarą", Toast.LENGTH_LONG).show();
+                else
+                    paliktiAtsiliepima(vardasTXT, atsiliepimasTXT);
             }
         });
 
+    }
+
+    public void paliktiAtsiliepima(String vardas, String komentaras) {
+        atsiliepimas ats = new atsiliepimas(vardas, komentaras);
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault());
+        String dt = sdf.format(new Date());
+
+        FirebaseDatabase.getInstance().getReference("Atsiliepimai").child(dt).setValue(ats).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()){
+                    Toast.makeText(feedback.this, "Saved", Toast.LENGTH_SHORT).show();
+
+                }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(feedback.this, e.getMessage().toString(),  Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override

@@ -13,17 +13,18 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     private Context context;
-    private List viesbuciai;
+    private ArrayList duomenys;
 
-    public MyAdapter(Context context, List viesbuciai)
+    public MyAdapter(Context context, ArrayList duomenys)
     {
         this.context=context;
-        this.viesbuciai=viesbuciai;
+        this.duomenys = duomenys;
     }
 
     @NonNull
@@ -35,7 +36,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        Hotel obj = (Hotel) viesbuciai.get(position);
+        Object obj = (Object) duomenys.get(position);
         holder.name_id.setText(String.valueOf(obj.getPavadinimas()));
         holder.address_id.setText(String.valueOf(obj.getAdresas()));
         holder.rating_id.setText(String.valueOf(obj.getVertinimas()));
@@ -72,7 +73,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     @Override
     public int getItemCount() {
-        return viesbuciai.size();
+        return duomenys.size();
     }
 
 

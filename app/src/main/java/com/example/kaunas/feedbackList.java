@@ -16,14 +16,20 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 
 public class feedbackList extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    ArrayList<String> name, feedback;
-    DBHelper DB;
-    FeedbackAdapter adapter;
+    DatabaseReference database;
+    feedback_adapter adapter;
+    ArrayList<atsiliepimas> duom;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,30 +48,31 @@ public class feedbackList extends AppCompatActivity {
             }
         });
 
-        DB = new DBHelper(this);
-        name = new ArrayList<>();
-        feedback=new ArrayList<>();
-        recyclerView=findViewById(R.id.recyclerview);
-        adapter=new FeedbackAdapter(this, name,feedback);
-        recyclerView.setAdapter(adapter);
+        recyclerView = findViewById(R.id.recyclerview);
+        database = FirebaseDatabase.getInstance().getReference("Atsiliepimai");
+        recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        displayData();
 
-    }
-
-    private void displayData()
-    {
-        Cursor cursor = DB.getData();
-        if (cursor.getCount()==0)
-        {
-            Toast.makeText(this, "No Entry Exists", Toast.LENGTH_SHORT).show();
-        }
-        else {
-            while (cursor.moveToNext()) {
-                name.add(cursor.getString(0));
-                feedback.add(cursor.getString(1));
+        duom = new ArrayList<>();
+        adapter = new feedback_adapter(this, duom);
+        recyclerView.setAdapter(adapter);
+        database.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    atsiliepimas fb = dataSnapshot.getValue(atsiliepimas.class);
+                    duom.add(fb);
+                }
+                adapter.notifyDataSetChanged();
             }
-        }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
     }
 
     @Override

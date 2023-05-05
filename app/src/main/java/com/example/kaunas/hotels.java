@@ -1,7 +1,6 @@
 package com.example.kaunas;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -9,30 +8,31 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Debug;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.ListIterator;
 
 public class hotels extends AppCompatActivity {
     RecyclerView recyclerView;
     MyAdapter adapter;
-
-
+    ArrayList<Object> duom;
+    DatabaseReference database;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,39 +44,29 @@ public class hotels extends AppCompatActivity {
 
         ImageView back = (ImageView) findViewById(R.id.back);
 
-        // DUOMENYS
-        AppDatabase db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "Hotels").allowMainThreadQueries().fallbackToDestructiveMigration().build();
-
-        List<Hotel> viesbuciai;
-        db.hotelDao().nukeTable();
-
-        Hotel viesbutis1 = new Hotel("HOF hotel", "Maironio g. 21A", "4 žvaigždutės", "https://www.hofhotel.eu", R.drawable.hof_hotel, "https://goo.gl/maps/BvcjuhFkPjEXBfsy6");
-        Hotel viesbutis2 = new Hotel("Kaunas Garden", "Laisvės al. 38E", "3 žvaigždutės", "https://www.kaunasgarden.lt", R.drawable.kaunas_garden, "https://goo.gl/maps/d6dM1QigPYy98oSC9");
-        Hotel viesbutis3 = new Hotel("Guest house", "Rotušės a. 21", "5 žvaigždutės", "http://kaunas.lcn.lt/sveciunamai/en/", R.drawable.guest_house, "https://goo.gl/maps/vGJJJheBGG7tMCdW8");
-        Hotel viesbutis4 = new Hotel("Happy Inn", "Vytauto pr. 21", "4 žvaigždutės", "https://www.facebook.com/trumpalaikenuoma/", R.drawable.happy_inn, "https://goo.gl/maps/kE89p3brMVYUcPaKA");
-        Hotel viesbutis5 = new Hotel("Moxy Kaunas Center", "Maironio g. 19", "4.5 žvaigždutės", "https://www.facebook.com/Moxykaunascenter/", R.drawable.moxy_kaunas_center, "https://goo.gl/maps/gru7xMfTAnW2ArtS7");
-        Hotel viesbutis6 = new Hotel("Very Bad Hotel", "Žemaičių g. 144", "4.5 žvaigždutės", "https://verybadhotel.lt", R.drawable.very_bad_hotel, "https://goo.gl/maps/J8QBnMrMsG7sHQws8");
-        Hotel viesbutis7 = new Hotel("Kaunas City", "Laisvės al. 90", "4 žvaigždutės", "https://kaunascityhotel.com/en/", R.drawable.kaunas_city, "https://goo.gl/maps/VeGtziUxtZD3VWYRA");
-        Hotel viesbutis8 = new Hotel("Radisson Hotel", "K. Donelaičio g. 27", "4 žvaigždutės", "https://www.radissonhotels.com/en-us/hotels/radisson-kaunas", R.drawable.radisson_hotel, "https://goo.gl/maps/d3e6jKcZnsXMy8Y57");
-
-        db.hotelDao().insertAll(viesbutis1);
-        db.hotelDao().insertAll(viesbutis2);
-        db.hotelDao().insertAll(viesbutis3);
-        db.hotelDao().insertAll(viesbutis4);
-        db.hotelDao().insertAll(viesbutis5);
-        db.hotelDao().insertAll(viesbutis6);
-        db.hotelDao().insertAll(viesbutis7);
-        db.hotelDao().insertAll(viesbutis8);
-
-        viesbuciai = db.hotelDao().getAllHotels();
-
         recyclerView = findViewById(R.id.recyclerview);
-        adapter = new MyAdapter(this, viesbuciai);
-        recyclerView.setAdapter(adapter);
+        database = FirebaseDatabase.getInstance().getReference("Viešbučiai");
+        recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // DUOMENYS
+        duom = new ArrayList<>();
+        adapter = new MyAdapter(this, duom);
+        recyclerView.setAdapter(adapter);
+        database.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    Object obj = dataSnapshot.getValue(Object.class);
+                    duom.add(obj);
+                }
+                adapter.notifyDataSetChanged();
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
