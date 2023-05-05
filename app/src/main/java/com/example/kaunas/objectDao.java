@@ -8,16 +8,16 @@ import androidx.room.Query;
 import java.util.List;
 
 @Dao
-public interface hotelDao {
-    @Query("SELECT * FROM Hotel")
-    List<Hotel> getAllHotels();
+public interface objectDao {
+    @Query("SELECT * FROM Object")
+    List<Object> getAllHotels();
 
     @Insert
-    void insertAll(Hotel... hotels);
+    void insertAll(Object... hotels);
 
     @Delete
-    void delete(List<Hotel> hotels);
+    void delete(List<Object> hotels);
 
-    @Query("DELETE FROM hotel")
+    @Query("DELETE FROM Object")
     public void nukeTable();
 }

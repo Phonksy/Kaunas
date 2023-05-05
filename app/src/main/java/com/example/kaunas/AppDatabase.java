@@ -3,10 +3,10 @@ package com.example.kaunas;
 import androidx.room.Database;
 import androidx.room.RoomDatabase;
 
-@Database(entities = {Hotel.class}, version = 4)
+@Database(entities = {Object.class}, version = 3)
 
 public abstract class AppDatabase extends RoomDatabase {
-    public abstract hotelDao hotelDao();
+    public abstract objectDao objectDao();
 
 
 }

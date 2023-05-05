@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="110dp"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="3dp"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="17dp"
+        android:background="#FFFFFF"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/vardas"
+            android:layout_width="match_parent"
+            android:layout_height="27dp"
+            android:background="#FFFFFF"
+            android:fontFamily="@font/atma_semibold"
+            android:text="Vardas"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:layout_marginBottom="5dp">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/komentaras"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:fontFamily="@font/atma_semibold"
+            android:text="Komentaras"
+            android:textColor="@color/black"
+            android:textSize="16dp">
+
+        </TextView>
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

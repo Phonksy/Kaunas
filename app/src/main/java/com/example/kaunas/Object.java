@@ -5,7 +5,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 @Entity
-public class Hotel {
+public class Object {
 
     @PrimaryKey(autoGenerate = true)
     public int id;
@@ -28,7 +28,7 @@ public class Hotel {
     @ColumnInfo (name = "nuorodos")
     public String nuorodos;
 
-    public Hotel (String pavadinimas, String adresas, String vertinimas, String svetaine, int foto, String nuorodos)
+    public Object(String pavadinimas, String adresas, String vertinimas, String svetaine, int foto, String nuorodos)
     {
         this.pavadinimas=pavadinimas;
         this.adresas=adresas;
@@ -36,6 +36,10 @@ public class Hotel {
         this.svetaine=svetaine;
         this.foto=foto;
         this.nuorodos=nuorodos;
+    }
+
+    public Object () {
+
     }
 
     public String getPavadinimas () {
