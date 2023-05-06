@@ -27,22 +27,23 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.MapStyleOptions;
+
 import android.util.Log;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+
 import androidx.appcompat.app.AppCompatDelegate;
 
 public class placesToVisit extends AppCompatActivity implements OnMapReadyCallback, LocationListener {
 
 
+    TextView pav;
     private GoogleMap googleMap;
     private MapView mapView;
-
     private LocationManager locationManager;
     private Location currentLocation;
-    TextView pav;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -125,8 +126,7 @@ public class placesToVisit extends AppCompatActivity implements OnMapReadyCallba
     }
 
     @Override
-    public boolean onCreateOptionsMenu (Menu menu)
-    {
+    public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.toolbar_menu, menu);
         return true;
     }
@@ -174,87 +174,69 @@ public class placesToVisit extends AppCompatActivity implements OnMapReadyCallba
 
         // Add markers for historic landmarks in Kaunas
         Marker kaunasCastleMarker = googleMap.addMarker(new MarkerOptions()
-                .position(new LatLng(54.8953, 23.8863))
-                .title("Kaunas Castle")
-                .snippet("Medieval castle in Kaunas Old Town.")
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+                .position(new LatLng(54.8989, 23.8854))
+                .title("Kauno pilis")
+                .snippet("Viena seniausių Lietuvos mūrinių pilių, stovinti Kaune.")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
 
         Marker stMichaelArchangelMarker = googleMap.addMarker(new MarkerOptions()
-                .position(new LatLng(54.8959, 23.8901))
-                .title("St. Michael the Archangel Church")
-                .snippet("Historic church in Kaunas Old Town.")
+                .position(new LatLng(54.8969, 23.9213))
+                .title("Kauno Šv. arkangelo Mykolo (Įgulos) bažnyčia")
+                .snippet("Stovi Kauno naujamiestyje, rytinėje Laisvės alėjos dalyje.")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
 
         Marker kaunasCathedralMarker = googleMap.addMarker(new MarkerOptions()
-                .position(new LatLng(54.8989, 23.8982))
-                .title("Kaunas Cathedral Basilica")
-                .snippet("Catholic cathedral in Kaunas Old Town.")
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+                .position(new LatLng(54.9009, 23.9795))
+                .title("VI Kauno fortas")
+                .snippet("Kauno tvirtovės dalis rytinėje miesto dalyje, Gričiupyje.")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
 
         Marker houseOfPerkunasMarker = googleMap.addMarker(new MarkerOptions()
-                .position(new LatLng(54.8977, 23.8907))
-                .title("House of Perkūnas")
-                .snippet("Historic building in Kaunas Old Town.")
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+                .position(new LatLng(54.8826, 23.9551))
+                .title("Aukštųjų Šančių piliakalnis")
+                .snippet("Piliakalnis Kauno savivaldybės teritorijoje, ant Nemuno kranto.")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
 
         Marker vytautasWarMuseumMarker = googleMap.addMarker(new MarkerOptions()
-                .position(new LatLng(54.8972, 23.8908))
-                .title("Vytautas the Great War Museum")
-                .snippet("Military museum in Kaunas Old Town.")
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+                .position(new LatLng(54.8999, 23.9121))
+                .title("Vytauto Didžiojo karo muziejus")
+                .snippet("Laikomas vertingu Kauno modernizmo architektūros pastatu.")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_CYAN)));
 
         Marker ninthFortMarker = googleMap.addMarker(new MarkerOptions()
-                .position(new LatLng(54.8971, 23.9011))
-                .title("Ninth Fort Museum")
-                .snippet("Museum and memorial to the victims of Nazi and Soviet terror.")
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+                .position(new LatLng(54.9454, 23.8709))
+                .title("IX fortas")
+                .snippet("Kauno tvirtovės dalis, išsidėsčiusi šiaurinėje miesto dalyje.")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA)));
 
         Marker pazaislisMonasteryMarker = googleMap.addMarker(new MarkerOptions()
-                .position(new LatLng(54.9343, 23.9463))
-                .title("Pazaislis Monastery")
-                .snippet("Baroque monastery on the outskirts of Kaunas.")
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+                .position(new LatLng(54.8763, 24.0223))
+                .title("Pažaislio vienuolynas")
+                .snippet("Pastatų ansamblis Pažaislyje, Kauno marių šiaurės-vakariniame krante.")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE)));
 
         Marker kaunasTownHallMarker = googleMap.addMarker(new MarkerOptions()
-                .position(new LatLng(54.8982, 23.9044))
-                .title("Kaunas Town Hall")
-                .snippet("Historic town hall in Kaunas Old Town.")
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+                .position(new LatLng(54.8968, 23.8861))
+                .title("Kauno rotušė")
+                .snippet("Rotušė Kaune, Senamiestyje, netoli Nemuno ir Neries santakos.")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
 
         Marker kaunasGhettoMarker = googleMap.addMarker(new MarkerOptions()
-                .position(new LatLng(54.9044, 23.8938))
-                .title("Kaunas Ghetto")
-                .snippet("Site of the wartime Jewish ghetto in Kaunas.")
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+                .position(new LatLng(54.9158, 23.8883))
+                .title("Kauno getas")
+                .snippet("Nacistinės Vokietijos Kaune sukurtas getas, kuriame laikyti žydai.")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ROSE)));
 
         Marker christsResurrectionMarker = googleMap.addMarker(new MarkerOptions()
-                .position(new LatLng(54.9009, 23.8935))
-                .title("Christ's Resurrection Church")
-                .snippet("Orthodox church in Kaunas Old Town.")
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+                .position(new LatLng(54.9027, 23.9174))
+                .title("Prisikėlimo bažnyčia")
+                .snippet("Didžiausia monumentalios architektūros bazilikinė bažnyčia Baltijos šalyse.")
+                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET)));
 
         // Enable the zoom controls on the map
         googleMap.getUiSettings().setZoomControlsEnabled(true);
-
-        // Check if location permission is granted
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-                == PackageManager.PERMISSION_GRANTED) {
-            // Enable the location layer on the map
-            googleMap.setMyLocationEnabled(true);
-
-            // Move the camera to the user's current location
-            if (currentLocation != null) {
-                LatLng latLng = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
-                googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 5));
-            }
-            else {
-                LatLng kaunasLatLng = new LatLng(54.8985, 23.9036);
-                googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(kaunasLatLng, 5));
-            }
-        } else {
-            // Request location permission if not granted
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
-        }
+        LatLng kaunasLatLng = new LatLng(54.8985, 23.9036);
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(kaunasLatLng, 11));
     }
 
     @Override

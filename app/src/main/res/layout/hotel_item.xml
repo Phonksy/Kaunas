@@ -46,7 +46,7 @@
             <TextView
                 android:id="@+id/textaddress"
                 android:layout_width="173dp"
-                android:layout_height="match_parent"
+                android:layout_height="22dp"
                 android:background="#FFFFFF"
                 android:fontFamily="@font/champagne_bold"
                 android:text="Adresas"
@@ -74,72 +74,83 @@
         <TextView
             android:id="@+id/textrating"
             android:layout_width="173dp"
-            android:layout_height="wrap_content"
+            android:layout_height="22dp"
             android:background="#FFFFFF"
             android:fontFamily="@font/champagne_bold"
             android:text="Vertinimas"
             android:textColor="@color/black"
-            android:textSize="16dp"
->
+            android:textSize="16dp">
 
         </TextView>
     </LinearLayout>
+    </LinearLayout>
 
+    <LinearLayout
+            android:layout_width="150dp"
+            android:layout_height="120dp"
+            android:orientation="horizontal"
+            android:layout_marginLeft="230dp">
 
+            <ImageView
+                android:id="@+id/nuotrauka"
+                android:layout_width="134dp"
+                android:layout_height="85dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/happy_inn" />
 
     </LinearLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="50dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginLeft="30dp"
+        android:background="#FFFFFF"
+        android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/eiti"
-            android:layout_width="105dp"
-            android:layout_height="36dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="128dp"
-            android:background="@color/white"
-            android:fontFamily="@font/champagne_bold"
-            android:text="EITI Į SVETAINĘ"
-            app:layout_constraintStart_toEndOf="@+id/dalintis"
-            app:layout_constraintTop_toTopOf="parent" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <Button
-            android:id="@+id/dalintis"
-            android:layout_width="96dp"
-            android:layout_height="37dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="128dp"
-            android:background="@color/white"
-            android:fontFamily="@font/champagne_bold"
-            android:text="DALINTIS"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <Button
+                android:id="@+id/eiti"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:fontFamily="@font/champagne_bold"
+                android:text="EITI Į SVETAINĘ"
+                android:layout_marginLeft="20dp"
+                android:outlineAmbientShadowColor="@color/black"
+                app:layout_constraintStart_toEndOf="@+id/dalintis"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/nuorodos"
-            android:layout_width="103dp"
-            android:layout_height="36dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="128dp"
-            android:background="@color/white"
-            android:fontFamily="@font/champagne_bold"
-            android:text="NUORODOS"
-            app:layout_constraintStart_toEndOf="@+id/eiti"
-            app:layout_constraintTop_toTopOf="parent" />
+            <Button
+                android:id="@+id/dalintis"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:fontFamily="@font/champagne_bold"
+                android:text="DALINTIS"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/nuotrauka"
-            android:layout_width="134dp"
-            android:layout_height="85dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/happy_inn" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <Button
+                android:id="@+id/nuorodos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:fontFamily="@font/champagne_bold"
+                android:text="NUORODOS"
+                android:layout_marginLeft="20dp"
+                app:layout_constraintStart_toEndOf="@+id/eiti"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
 </androidx.cardview.widget.CardView>
