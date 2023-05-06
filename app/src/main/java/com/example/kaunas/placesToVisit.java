@@ -146,62 +146,61 @@ public class placesToVisit extends AppCompatActivity implements OnMapReadyCallba
     public void onMapReady(GoogleMap googleMap) {
         this.googleMap = googleMap;
 
-        // Add markers for historic landmarks in Kaunas
-        Marker kaunasCastleMarker = googleMap.addMarker(new MarkerOptions()
+        googleMap.addMarker(new MarkerOptions()
                 .position(new LatLng(54.8989, 23.8854))
                 .title("Kauno pilis")
                 .snippet("Viena seniausių Lietuvos mūrinių pilių, stovinti Kaune.")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
 
-        Marker stMichaelArchangelMarker = googleMap.addMarker(new MarkerOptions()
+        googleMap.addMarker(new MarkerOptions()
                 .position(new LatLng(54.8969, 23.9213))
                 .title("Kauno Šv. arkangelo Mykolo (Įgulos) bažnyčia")
                 .snippet("Stovi Kauno naujamiestyje, rytinėje Laisvės alėjos dalyje.")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
 
-        Marker kaunasCathedralMarker = googleMap.addMarker(new MarkerOptions()
+        googleMap.addMarker(new MarkerOptions()
                 .position(new LatLng(54.9009, 23.9795))
                 .title("VI Kauno fortas")
                 .snippet("Kauno tvirtovės dalis rytinėje miesto dalyje, Gričiupyje.")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
 
-        Marker houseOfPerkunasMarker = googleMap.addMarker(new MarkerOptions()
+        googleMap.addMarker(new MarkerOptions()
                 .position(new LatLng(54.8826, 23.9551))
                 .title("Aukštųjų Šančių piliakalnis")
                 .snippet("Piliakalnis Kauno savivaldybės teritorijoje, ant Nemuno kranto.")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
 
-        Marker vytautasWarMuseumMarker = googleMap.addMarker(new MarkerOptions()
+        googleMap.addMarker(new MarkerOptions()
                 .position(new LatLng(54.8999, 23.9121))
                 .title("Vytauto Didžiojo karo muziejus")
                 .snippet("Laikomas vertingu Kauno modernizmo architektūros pastatu.")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_CYAN)));
 
-        Marker ninthFortMarker = googleMap.addMarker(new MarkerOptions()
+        googleMap.addMarker(new MarkerOptions()
                 .position(new LatLng(54.9454, 23.8709))
                 .title("IX fortas")
                 .snippet("Kauno tvirtovės dalis, išsidėsčiusi šiaurinėje miesto dalyje.")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA)));
 
-        Marker pazaislisMonasteryMarker = googleMap.addMarker(new MarkerOptions()
+        googleMap.addMarker(new MarkerOptions()
                 .position(new LatLng(54.8763, 24.0223))
                 .title("Pažaislio vienuolynas")
                 .snippet("Pastatų ansamblis Pažaislyje, Kauno marių šiaurės-vakariniame krante.")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE)));
 
-        Marker kaunasTownHallMarker = googleMap.addMarker(new MarkerOptions()
+        googleMap.addMarker(new MarkerOptions()
                 .position(new LatLng(54.8968, 23.8861))
                 .title("Kauno rotušė")
                 .snippet("Rotušė Kaune, Senamiestyje, netoli Nemuno ir Neries santakos.")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
 
-        Marker kaunasGhettoMarker = googleMap.addMarker(new MarkerOptions()
+        googleMap.addMarker(new MarkerOptions()
                 .position(new LatLng(54.9158, 23.8883))
                 .title("Kauno getas")
                 .snippet("Nacistinės Vokietijos Kaune sukurtas getas, kuriame laikyti žydai.")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ROSE)));
 
-        Marker christsResurrectionMarker = googleMap.addMarker(new MarkerOptions()
+        googleMap.addMarker(new MarkerOptions()
                 .position(new LatLng(54.9027, 23.9174))
                 .title("Prisikėlimo bažnyčia")
                 .snippet("Didžiausia monumentalios architektūros bazilikinė bažnyčia Baltijos šalyse.")
@@ -215,7 +214,6 @@ public class placesToVisit extends AppCompatActivity implements OnMapReadyCallba
 
     @Override
     public void onLocationChanged(Location location) {
-        // Update the current location
-        //currentLocation = location;
+
     }
 }

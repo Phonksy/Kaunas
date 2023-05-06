@@ -219,7 +219,7 @@ public class MainActivity extends AppCompatActivity {
                 .setNegativeButton("Taip", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        MainActivity.this.finish();
+                        MainActivity.this.finishAffinity();
                         System.exit(0);
                     }
                 })

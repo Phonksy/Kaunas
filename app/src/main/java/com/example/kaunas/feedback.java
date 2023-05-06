@@ -74,10 +74,8 @@ public class feedback extends AppCompatActivity {
                 String vardasTXT = vardas.getText().toString();
                 String atsiliepimasTXT = atsiliepimas.getText().toString();
 
-                if (vardasTXT.length() < 1)
-                    Toast.makeText(feedback.this, "Įveskite vardą", Toast.LENGTH_LONG).show();
-                else if (atsiliepimasTXT.length() < 1)
-                    Toast.makeText(feedback.this, "Įveskite komentarą", Toast.LENGTH_LONG).show();
+                if (vardasTXT.length() < 1 || atsiliepimasTXT.length() < 1)
+                    Toast.makeText(feedback.this, "Užpildykite visus laukus", Toast.LENGTH_LONG).show();
                 else {
                     paliktiAtsiliepima(vardasTXT, atsiliepimasTXT);
                     vardas.setText("");
