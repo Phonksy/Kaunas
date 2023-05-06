@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -30,6 +31,7 @@ public class feedbackList extends AppCompatActivity {
     DatabaseReference database;
     feedback_adapter adapter;
     ArrayList<atsiliepimas> duom;
+    TextView pav;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +40,8 @@ public class feedbackList extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar((toolbar));
         getSupportActionBar().setTitle(null);
+        pav = findViewById(R.id.pavad);
+        pav.setText("ATSILIEPIMAI");
 
         ImageView back = findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {

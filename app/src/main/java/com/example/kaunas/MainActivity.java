@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     Button hotels;
 
     Button feedback;
+    TextView pav;
 
     private final String url = "https://api.openweathermap.org/data/2.5/weather?q=Kaunas&appid=754bd930c832caf89b0b549909da0b45";
     private static final DecimalFormat df = new DecimalFormat("0.0");
@@ -68,6 +69,8 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar((toolbar));
         getSupportActionBar().setTitle(null);
         getSupportActionBar().hide();
+        pav = findViewById(R.id.pavad);
+        pav.setText("");
 
         Date data = new Date( );
         SimpleDateFormat ft =

@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -33,6 +34,7 @@ public class hotels extends AppCompatActivity {
     MyAdapter adapter;
     ArrayList<Object> duom;
     DatabaseReference database;
+    TextView pav;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +43,8 @@ public class hotels extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar((toolbar));
         getSupportActionBar().setTitle(null);
+        pav = findViewById(R.id.pavad);
+        pav.setText("VIEŠBUČIAI");
 
         ImageView back = (ImageView) findViewById(R.id.back);
 

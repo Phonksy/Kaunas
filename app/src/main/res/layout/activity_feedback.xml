@@ -11,20 +11,6 @@
     android:gravity="top"
     tools:ignore="HardcodedText">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="170dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="-40dp"
-        android:layout_marginEnd="110dp"
-        android:fontFamily="@font/atma_semibold"
-        android:text="PALIKTI ATSILIEPIMĄ"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
-
     <include
         android:id="@+id/toolbar"
         layout="@layout/toolbar_layout"
@@ -41,7 +27,7 @@
         android:layout_marginTop="92dp"
         android:layout_marginEnd="60dp"
         android:ems="10"
-        android:fontFamily="@font/atma_semibold"
+        android:fontFamily="@font/champagne_bold"
         android:hint="Įveskite savo vardą"
         android:textAlignment="center"
         android:inputType="textPersonName"
@@ -59,7 +45,7 @@
         android:layout_marginTop="21dp"
         android:layout_marginEnd="51dp"
         android:ems="10"
-        android:fontFamily="@font/atma_semibold"
+        android:fontFamily="@font/champagne_bold"
         android:hint="Įveskite atsiliepimą"
         android:textAlignment="center"
         android:inputType="textPersonName"
@@ -76,7 +62,7 @@
         android:layout_marginTop="62dp"
         android:layout_marginEnd="126dp"
         android:background="#80FFFFFF"
-        android:fontFamily="@font/atma_semibold"
+        android:fontFamily="@font/champagne_bold"
         android:text="PATEIKTI"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -93,7 +79,7 @@
         android:text="PERŽIŪRĖTI ATSILIEPIMUS"
         android:textSize="16sp"
         android:background="#80FFFFFF"
-        android:fontFamily="@font/atma_semibold"
+        android:fontFamily="@font/champagne_bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pateikti" />

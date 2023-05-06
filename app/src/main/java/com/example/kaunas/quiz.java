@@ -19,7 +19,7 @@ import android.widget.TextView;
 
 public class quiz extends AppCompatActivity implements View.OnClickListener {
     TextView questionNumber;
-    TextView question;
+    TextView question, pav;
     Button ansA, ansB, ansC, ansD;
     Button submit;
     int totalQuestions = questionsAnswer.question.length;
@@ -36,6 +36,8 @@ public class quiz extends AppCompatActivity implements View.OnClickListener {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar((toolbar));
         getSupportActionBar().setTitle(null);
+        pav = findViewById(R.id.pavad);
+        pav.setText("PASITIKRINK ŽINIAS");
 
         questionNumber = findViewById(R.id.questionNumber);
         question = findViewById(R.id.question);

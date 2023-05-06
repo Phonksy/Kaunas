@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -30,6 +31,7 @@ public class bestRestaurants extends AppCompatActivity {
     MyAdapter adapter;
     ArrayList<Object> duom;
     DatabaseReference database;
+    TextView pav;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,9 @@ public class bestRestaurants extends AppCompatActivity {
         database = FirebaseDatabase.getInstance().getReference("Restoranai");
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        pav = findViewById(R.id.pavad);
+        pav.setText("KUR PAVALGYTI?");
 
         duom = new ArrayList<>();
         adapter = new MyAdapter(this, duom);
