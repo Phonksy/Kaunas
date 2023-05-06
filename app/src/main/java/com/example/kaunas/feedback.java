@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -27,6 +28,7 @@ public class feedback extends AppCompatActivity {
 
     EditText vardas, atsiliepimas;
     Button palikti, perziureti;
+    TextView pav;
     private DatabaseReference mDatabase;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,8 @@ public class feedback extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar((toolbar));
         getSupportActionBar().setTitle(null);
+        pav = findViewById(R.id.pavad);
+        pav.setText("ATSILIEPIMAI");
 
         ImageView back = (ImageView) findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {

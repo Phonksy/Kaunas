@@ -19,5 +19,17 @@
         android:src="?attr/homeAsUpIndicator"
         android:layout_marginLeft="15dp"/>
 
+    <TextView
+        android:id="@+id/pavad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="HELLO"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:layout_marginRight="10dp"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:fontFamily="@font/champagne_bold" />
+
 
 </androidx.appcompat.widget.Toolbar>

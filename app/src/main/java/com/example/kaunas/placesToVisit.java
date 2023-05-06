@@ -28,6 +28,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.MapStyleOptions;
 import android.util.Log;
+import android.widget.TextView;
+
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -40,6 +42,7 @@ public class placesToVisit extends AppCompatActivity implements OnMapReadyCallba
 
     private LocationManager locationManager;
     private Location currentLocation;
+    TextView pav;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +53,8 @@ public class placesToVisit extends AppCompatActivity implements OnMapReadyCallba
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar((toolbar));
         getSupportActionBar().setTitle(null);
+        pav = findViewById(R.id.pavad);
+        pav.setText("LANKYTINOS VIETOS");
 
         ImageView back = findViewById(R.id.back);
 

@@ -14,9 +14,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class aboutKaunas extends AppCompatActivity {
 
+    TextView pav;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +27,8 @@ public class aboutKaunas extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar((toolbar));
         getSupportActionBar().setTitle(null);
+        pav = findViewById(R.id.pavad);
+        pav.setText("APIE KAUNĄ");
 
         ImageView back = (ImageView) findViewById(R.id.back);
 

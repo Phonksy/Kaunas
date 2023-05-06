@@ -19,8 +19,8 @@
         android:layout_marginStart="48dp"
         android:layout_marginTop="33dp"
         android:layout_marginEnd="48dp"
-        android:fontFamily="@font/atma_semibold"
-        android:text="PASITIKRINK ŽINIAS"
+        android:fontFamily="@font/champagne_bold"
+        android:text="TESTAS"
         android:textColor="#000000"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,7 +34,7 @@
         android:layout_marginStart="45dp"
         android:layout_marginTop="82dp"
         android:layout_marginEnd="48dp"
-        android:fontFamily="@font/atma_semibold"
+        android:fontFamily="@font/champagne_bold"
         android:text="Kada švenčiama Kauno miesto diena?"
         android:textAlignment="center"
         android:textColor="#000000"
@@ -56,7 +56,8 @@
         app:layout_constraintBottom_toTopOf="@+id/ansB"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/question" />
+        app:layout_constraintTop_toBottomOf="@+id/question"
+        android:fontFamily="@font/champagne_bold"/>
 
     <Button
         android:id="@+id/ansB"
@@ -71,7 +72,8 @@
         app:layout_constraintBottom_toTopOf="@+id/ansC"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ansA" />
+        app:layout_constraintTop_toBottomOf="@+id/ansA"
+        android:fontFamily="@font/champagne_bold"/>
 
     <Button
         android:id="@+id/ansC"
@@ -86,7 +88,8 @@
         app:layout_constraintBottom_toTopOf="@+id/ansD"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ansB" />
+        app:layout_constraintTop_toBottomOf="@+id/ansB"
+        android:fontFamily="@font/champagne_bold"/>
 
     <Button
         android:id="@+id/ansD"
@@ -101,7 +104,8 @@
         app:layout_constraintBottom_toTopOf="@+id/submit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ansC" />
+        app:layout_constraintTop_toBottomOf="@+id/ansC"
+        android:fontFamily="@font/champagne_bold"/>
 
     <TextView
         android:id="@+id/questionNumber"
@@ -111,7 +115,7 @@
         android:layout_marginTop="41dp"
         android:layout_marginEnd="191dp"
         android:layout_marginBottom="15dp"
-        android:fontFamily="@font/atma_semibold"
+        android:fontFamily="@font/champagne_bold"
         android:text="Nr. 1"
         android:textColor="#000000"
         android:textSize="16sp"
@@ -133,5 +137,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ansD" />
+        app:layout_constraintTop_toBottomOf="@+id/ansD"
+        android:fontFamily="@font/champagne_bold"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
