@@ -30,6 +30,8 @@ public class aboutKaunas extends AppCompatActivity {
         pav = findViewById(R.id.pavad);
         pav.setText("APIE KAUNĄ");
 
+        System.out.println(R.drawable.peledine);
+
         ImageView back = (ImageView) findViewById(R.id.back);
 
         back.setOnClickListener(new View.OnClickListener() {
