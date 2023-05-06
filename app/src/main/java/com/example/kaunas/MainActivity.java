@@ -2,6 +2,8 @@ package com.example.kaunas;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -71,6 +73,8 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         pav = findViewById(R.id.pavad);
         pav.setText("");
+
+        System.out.println(R.drawable.talutti);
 
         Date data = new Date( );
         SimpleDateFormat ft =
@@ -167,8 +171,59 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int itemId = item.getItemId();
+        if (itemId == R.id.nav_about) {
+            Intent intent = new Intent(MainActivity.this, aboutKaunas.class);
+            startActivity(intent);
+            return true;
+        } else if (itemId == R.id.nav_food) {
+            Intent intent2 = new Intent(MainActivity.this, bestRestaurants.class);
+            startActivity(intent2);
+            return true;
+        } else if (itemId == R.id.nav_places) {
+            Intent intent3 = new Intent(MainActivity.this, placesToVisit.class);
+            startActivity(intent3);
+            return true;
+        } else if (itemId == R.id.nav_quiz) {
+            Intent intent4 = new Intent(MainActivity.this, quiz.class);
+            startActivity(intent4);
+            return true;
+        } else if (itemId == R.id.nav_news) {
+            gotoUrl("https://kauno.diena.lt");
+            return true;
+        } else if (itemId == R.id.nav_feedback) {
+            Intent intent6 = new Intent(MainActivity.this, feedback.class);
+            startActivity(intent6);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     private void gotoUrl(String s) {
         Uri uri = Uri.parse(s);
         startActivity(new Intent(Intent.ACTION_VIEW, uri));
+    }
+
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this )
+                .setTitle("Ar tikrai norite uždaryti programėlę?")
+                .setPositiveButton("Ne", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                })
+                .setNegativeButton("Taip", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        MainActivity.this.finish();
+                        System.exit(0);
+                    }
+                })
+                .setCancelable(false)
+                .show();
     }
 }
