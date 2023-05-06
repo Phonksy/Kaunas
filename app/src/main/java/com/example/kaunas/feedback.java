@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -113,5 +115,40 @@ public class feedback extends AppCompatActivity {
     {
         getMenuInflater().inflate(R.menu.toolbar_menu, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.nav_about) {
+            Intent intent = new Intent(feedback.this, aboutKaunas.class);
+            startActivity(intent);
+            return true;
+        } else if (id == R.id.nav_food) {
+            Intent intent2 = new Intent(feedback.this, bestRestaurants.class);
+            startActivity(intent2);
+            return true;
+        } else if (id == R.id.nav_places) {
+            Intent intent3 = new Intent(feedback.this, placesToVisit.class);
+            startActivity(intent3);
+            return true;
+        } else if (id == R.id.nav_hotels) {
+            Intent intent5 = new Intent(feedback.this, hotels.class);
+            startActivity(intent5);
+            return true;
+        } else if (id == R.id.nav_news) {
+            gotoUrl("https://kauno.diena.lt");
+            return true;
+        } else if (id == R.id.nav_feedback) {
+            Intent intent6 = new Intent(feedback.this, feedback.class);
+            startActivity(intent6);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void gotoUrl(String s) {
+        Uri uri = Uri.parse(s);
+        startActivity(new Intent(Intent.ACTION_VIEW, uri));
     }
 }
