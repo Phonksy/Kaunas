@@ -73,6 +73,7 @@ public class feedback extends AppCompatActivity {
             public void onClick(View view) {
                 String vardasTXT = vardas.getText().toString();
                 String atsiliepimasTXT = atsiliepimas.getText().toString();
+                TextView pranesimas = findViewById(R.id.pranesimas);
                 boolean good = true;
 
                 if (vardasTXT.length() < 1 || atsiliepimasTXT.length() < 1 ) {
@@ -83,12 +84,13 @@ public class feedback extends AppCompatActivity {
                 char[] symbols = vardasTXT.toCharArray();
                 for(char c : symbols){
                     if(Character.isDigit(c)){
-                        Toast.makeText(feedback.this, "Vardas negali būti sudarytas iš skaičių", Toast.LENGTH_SHORT).show();
+                        pranesimas.setText("Varde negali būti skaičių");
                         good = false;
                     }
                 }
 
                 if (good){
+                    pranesimas.setText("");
                     paliktiAtsiliepima(vardasTXT, atsiliepimasTXT);
                     vardas.setText("");
                     atsiliepimas.setText("");
