@@ -73,10 +73,22 @@ public class feedback extends AppCompatActivity {
             public void onClick(View view) {
                 String vardasTXT = vardas.getText().toString();
                 String atsiliepimasTXT = atsiliepimas.getText().toString();
+                boolean good = true;
 
-                if (vardasTXT.length() < 1 || atsiliepimasTXT.length() < 1)
-                    Toast.makeText(feedback.this, "Užpildykite visus laukus", Toast.LENGTH_LONG).show();
-                else {
+                if (vardasTXT.length() < 1 || atsiliepimasTXT.length() < 1 ) {
+                    Toast.makeText(feedback.this, "Užpildykite visus laukus", Toast.LENGTH_SHORT).show();
+                    good = false;
+                }
+
+                char[] symbols = vardasTXT.toCharArray();
+                for(char c : symbols){
+                    if(Character.isDigit(c)){
+                        Toast.makeText(feedback.this, "Vardas negali būti sudarytas iš skaičių", Toast.LENGTH_SHORT).show();
+                        good = false;
+                    }
+                }
+
+                if (good){
                     paliktiAtsiliepima(vardasTXT, atsiliepimasTXT);
                     vardas.setText("");
                     atsiliepimas.setText("");

@@ -74,7 +74,9 @@ public class MainActivity extends AppCompatActivity {
         pav = findViewById(R.id.pavad);
         pav.setText("");
 
-        System.out.println(R.drawable.talutti);
+        System.out.println(R.drawable.moxy_kaunas_center);
+        System.out.println(R.drawable.radisson_hotel);
+        System.out.println(R.drawable.very_bad_hotel);
 
         Date data = new Date( );
         SimpleDateFormat ft =
