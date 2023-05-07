@@ -74,11 +74,16 @@ public class feedback extends AppCompatActivity {
                 String vardasTXT = vardas.getText().toString();
                 String atsiliepimasTXT = atsiliepimas.getText().toString();
                 TextView pranesimas = findViewById(R.id.pranesimas);
+                TextView pranesimas2 = findViewById(R.id.pranesimas2);
                 boolean good = true;
 
                 if (vardasTXT.length() < 1 || atsiliepimasTXT.length() < 1 ) {
-                    Toast.makeText(feedback.this, "Užpildykite visus laukus", Toast.LENGTH_SHORT).show();
+                    pranesimas2.setText("Užpildykite visus laukus");
+                    pranesimas.setText("");
                     good = false;
+                }
+                else if (vardasTXT.length() > 0 || atsiliepimasTXT.length() > 0 ) {
+                    pranesimas2.setText("");
                 }
 
                 char[] symbols = vardasTXT.toCharArray();
@@ -91,13 +96,13 @@ public class feedback extends AppCompatActivity {
 
                 if (good){
                     pranesimas.setText("");
+                    pranesimas2.setText("");
                     paliktiAtsiliepima(vardasTXT, atsiliepimasTXT);
                     vardas.setText("");
                     atsiliepimas.setText("");
                 }
             }
         });
-
     }
 
     public void paliktiAtsiliepima(String vardas, String komentaras) {
@@ -110,8 +115,7 @@ public class feedback extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful()){
-                    Toast.makeText(feedback.this, "Saved", Toast.LENGTH_SHORT).show();
-
+                    Toast.makeText(feedback.this, "Išsaugota", Toast.LENGTH_SHORT).show();
                 }
             }
         }).addOnFailureListener(new OnFailureListener() {
