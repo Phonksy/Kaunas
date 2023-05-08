@@ -92,6 +92,10 @@ public class feedback extends AppCompatActivity {
                         pranesimas.setText("Varde negali būti skaičių");
                         good = false;
                     }
+                    if (!Character.isDigit(c)&& !Character.isLetter(c)&& !Character.isWhitespace(c)) {
+                        pranesimas.setText("Varde negali būti simbolių");
+                        good = false;
+                    }
                 }
 
                 if (good){

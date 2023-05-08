@@ -18,6 +18,7 @@ import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -36,14 +37,17 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 
 import androidx.appcompat.app.AppCompatDelegate;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class placesToVisit extends AppCompatActivity implements OnMapReadyCallback, LocationListener {
 
 
     TextView pav;
     private GoogleMap googleMap;
     private MapView mapView;
-    private LocationManager locationManager;
-    private Location currentLocation;
+
+    private List<Marker> markers = new ArrayList<Marker>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -146,65 +150,135 @@ public class placesToVisit extends AppCompatActivity implements OnMapReadyCallba
     public void onMapReady(GoogleMap googleMap) {
         this.googleMap = googleMap;
 
-        googleMap.addMarker(new MarkerOptions()
+        Button pilys = findViewById(R.id.pilys);
+        Button baznycios = findViewById(R.id.baznycios);
+        Button muziejai = findViewById(R.id.muziejai);
+        Button rodytiViska = findViewById(R.id.rodytiViska);
+
+
+        Marker m1 = googleMap.addMarker(new MarkerOptions()
                 .position(new LatLng(54.8989, 23.8854))
                 .title("Kauno pilis")
                 .snippet("Viena seniausių Lietuvos mūrinių pilių, stovinti Kaune.")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+        m1.setTag("pilys");
+        markers.add(m1);
 
-        googleMap.addMarker(new MarkerOptions()
+        Marker m2 = googleMap.addMarker(new MarkerOptions()
                 .position(new LatLng(54.8969, 23.9213))
                 .title("Kauno Šv. arkangelo Mykolo (Įgulos) bažnyčia")
                 .snippet("Stovi Kauno naujamiestyje, rytinėje Laisvės alėjos dalyje.")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_YELLOW)));
+        m2.setTag("baznycios");
+        markers.add(m2);
 
-        googleMap.addMarker(new MarkerOptions()
+        Marker m3 = googleMap.addMarker(new MarkerOptions()
                 .position(new LatLng(54.9009, 23.9795))
                 .title("VI Kauno fortas")
                 .snippet("Kauno tvirtovės dalis rytinėje miesto dalyje, Gričiupyje.")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE)));
+        m3.setTag("muziejai");
+        markers.add(m3);
 
-        googleMap.addMarker(new MarkerOptions()
+        Marker m4 = googleMap.addMarker(new MarkerOptions()
                 .position(new LatLng(54.8826, 23.9551))
                 .title("Aukštųjų Šančių piliakalnis")
                 .snippet("Piliakalnis Kauno savivaldybės teritorijoje, ant Nemuno kranto.")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
+        m4.setTag("pilys");
+        markers.add(m4);
 
-        googleMap.addMarker(new MarkerOptions()
+        Marker m5 = googleMap.addMarker(new MarkerOptions()
                 .position(new LatLng(54.8999, 23.9121))
                 .title("Vytauto Didžiojo karo muziejus")
                 .snippet("Laikomas vertingu Kauno modernizmo architektūros pastatu.")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_CYAN)));
+        m5.setTag("muziejai");
+        markers.add(m5);
 
-        googleMap.addMarker(new MarkerOptions()
+        Marker m6 = googleMap.addMarker(new MarkerOptions()
                 .position(new LatLng(54.9454, 23.8709))
                 .title("IX fortas")
                 .snippet("Kauno tvirtovės dalis, išsidėsčiusi šiaurinėje miesto dalyje.")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA)));
+        m6.setTag("muziejai");
+        markers.add(m6);
 
-        googleMap.addMarker(new MarkerOptions()
+        Marker m7 = googleMap.addMarker(new MarkerOptions()
                 .position(new LatLng(54.8763, 24.0223))
                 .title("Pažaislio vienuolynas")
                 .snippet("Pastatų ansamblis Pažaislyje, Kauno marių šiaurės-vakariniame krante.")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE)));
+        m7.setTag("baznycios");
+        markers.add(m7);
 
-        googleMap.addMarker(new MarkerOptions()
+        Marker m8 = googleMap.addMarker(new MarkerOptions()
                 .position(new LatLng(54.8968, 23.8861))
                 .title("Kauno rotušė")
                 .snippet("Rotušė Kaune, Senamiestyje, netoli Nemuno ir Neries santakos.")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+        m8.setTag("baznycios");
+        markers.add(m8);
 
-        googleMap.addMarker(new MarkerOptions()
+        Marker m9 = googleMap.addMarker(new MarkerOptions()
                 .position(new LatLng(54.9158, 23.8883))
                 .title("Kauno getas")
                 .snippet("Nacistinės Vokietijos Kaune sukurtas getas, kuriame laikyti žydai.")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ROSE)));
+        m9.setTag("muziejai");
+        markers.add(m9);
 
-        googleMap.addMarker(new MarkerOptions()
+        Marker m10 = googleMap.addMarker(new MarkerOptions()
                 .position(new LatLng(54.9027, 23.9174))
                 .title("Prisikėlimo bažnyčia")
                 .snippet("Didžiausia monumentalios architektūros bazilikinė bažnyčia Baltijos šalyse.")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_VIOLET)));
+        m10.setTag("baznycios");
+        markers.add(m10);
+
+        pilys.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                for (Marker m : markers) {
+                    if (m.getTag()!="pilys")
+                        m.setVisible(false);
+                    else m.setVisible(true);
+                }
+            }
+        });
+
+        baznycios.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                for (Marker m : markers) {
+                    if (m.getTag()!="baznycios")
+                        m.setVisible(false);
+                    else m.setVisible(true);
+                }
+            }
+        });
+
+        muziejai.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                for (Marker m : markers) {
+                    if (m.getTag()!="muziejai")
+                        m.setVisible(false);
+                    else m.setVisible(true);
+                }
+            }
+        });
+
+        rodytiViska.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                for (Marker m : markers) {
+                    if (m.getTag()!="")
+                        m.setVisible(true);
+                }
+            }
+        });
+
 
         // Enable the zoom controls on the map
         googleMap.getUiSettings().setZoomControlsEnabled(true);
